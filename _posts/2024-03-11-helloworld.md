@@ -5,6 +5,6 @@ categories: [Tutorial]
 tags: [hello, world]
 ---
 
-# Merhaba Dünya!
+# Merhaba Dünya
 
 Bu bir "Merhaba Dünya!" gönderisidir. Markdown dosyalarını kullanarak içerik eklemek çok kolaydır.
