@@ -11,7 +11,7 @@ Bilişim lisesi öğrencisiyim . Python ve C# dillerinde kendimi geliştirdim ş
 ## Hakkımda
 - 🎓 **Eğitim**: Bilişim lisesi öğrencisi
 - 💻 **Deneyim**: Python ve C# projeleri geliştirdim, şu anda Flutter ve Ruby öğreniyorum.
-- 🌱 **İlgilenmekte Olduğum Alanlar**: Mobil uygulama geliştirme, Masaüstü uyguşama geliştirme, Yapay zeka...
+- 🌱 **İlgilenmekte Olduğum Alanlar**: Mobil uygulama geliştirme, Masaüstü uygulama geliştirme, Yapay zeka...
 
 ## Projeler
 - [DroneKit](https://github.com/AhmetBeratKocyigit/DroneKit): DroneKit İle Otonom Uçuş Yazılımı
