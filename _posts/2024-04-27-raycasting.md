@@ -53,15 +53,15 @@ The player navigates through the 3D environment using keyboard controls. Raycast
     import sys
     import math
 
-    # Ekran boyutları
+    
     WIDTH, HEIGHT = 800, 600
 
-    # Oyuncunun başlangıç konumu ve yönü
+    
     player_pos = [4.5, 4.5]
     player_dir = [-1, 0]
     player_plane = [0, 0.66]
 
-    # Harita
+    
     world_map = [
         [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
         [1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
