@@ -17,7 +17,7 @@ permalink: /mycustompage/
     
     <div class="container">
         <div class="square">
-            <h1 class="title">Benimle Çıkar mısın?</h1>
+            <h1 class="title">Benimle Çıkar mısın ?</h1>
         </div>
        
         <div class="buttons">
