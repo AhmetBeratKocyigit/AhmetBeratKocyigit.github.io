@@ -4,6 +4,7 @@ title: Benim Özel Sayfam
 permalink: /mycustompage/
 ---
 
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
