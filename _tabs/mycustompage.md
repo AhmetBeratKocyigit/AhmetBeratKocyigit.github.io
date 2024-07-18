@@ -7,6 +7,42 @@ permalink: /mycustompage/
 
 ![ ](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.esportelandia.com.br%2Fe)
 
+## CS 1.6 Launcher ve Setup 1 İndirme
+
+Bu dosya, Counter-Strike 1.6 oyununu başlatmak ve ek harita dosyalarını yüklemek için gereklidir. İşte nasıl kullanacağınıza dair adımlar:
+
+### Adım 1: İndirme
+
+Aşşağıda bulunan indir butonundan oyunu isdirin.
+
+### Adım 2: Dosyayı Yükleyin
+
+İndirdiğiniz `setup.exe` dosyasını bilgisayarınıza indirin ve çift tıklayarak çalıştırın.
+
+### Adım 3: Kurulumu Başlatın
+
+Kurulum sihirbazını takip edin ve gerekli adımları tamamlayarak CS 1.6 oyununu bilgisayarınıza kurun.
+
+### Adım 4: Harita Dosyalarını Ekleyin (İsteğe Bağlı)
+
+Oyun oynarken kullanmak istediğiniz ek harita dosyalarını, kurulum sırasında veya sonrasında seçerek yükleyebilirsiniz.
+
+### Notlar:
+
+- **Sistem Gereksinimleri:** Oyunun doğru çalışması için sistem gereksinimlerini kontrol edin ve gerektiğinde bilgisayarınızı güncelleyin.
+
+| Özellik          | Gereksinim                  |
+|------------------|-----------------------------|
+| İşletim Sistemi  | Windows 2000/XP/Vista/7/8/10 |
+| İşlemci          | Intel Pentium III 450 MHz veya AMD Athlon 450 MHz |
+| Bellek           | 96 MB RAM                   |
+| Ekran Kartı      | 16 MB OpenGL uyumlu         |
+| DirectX          | Sürüm 8.1                   |
+| Sabit Disk Alanı | 850 MB                      |
+| Ses              | DirectX uyumlu ses kartı    |
+
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
