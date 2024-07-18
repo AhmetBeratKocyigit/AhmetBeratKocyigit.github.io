@@ -5,7 +5,7 @@ icon: fa-solid fa-gun
 permalink: /mycustompage/
 ---
 
-![ ](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.esportelandia.com.br%2Fesports%2Ftudo-sobre-cs%2F&psig=AOvVaw0mYqGqEY3Ge6dunmojr7Ie&ust=1721386819096000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNj0jOO3sIcDFQAAAAAdAAAAABAm)
+![ ](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.esportelandia.com.br%2Fe)
 
 <html lang="en">
 <head>
