@@ -60,10 +60,11 @@ permalink: /mycustompage/
 <body>
     <div class="download-container">
         <h1>Download File</h1>
-        <a href="[https://drive.google.com/uc?export=download&id=YOUR_DRIVE_FILE_ID](https://drive.google.com/drive/folders/12QSjbjfZgFRn7Aj27nfeeAvVw6vWFEai)" class="download-button">
+        <a href="https://drive.google.com/drive/folders/12QSjbjfZgFRn7Aj27nfeeAvVw6vWFEai" class="download-button">
             <i class="fas fa-download"></i> Download File
         </a>
     </div>
 </body>
 </html>
+
 
