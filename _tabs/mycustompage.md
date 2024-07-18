@@ -5,7 +5,7 @@ icon: fa-solid fa-gun
 permalink: /mycustompage/
 ---
 
-![ ](https://www.google.com/url?sa=i&url=https%3A%2F%2Fstore.steampowered.com%2Fapp%2F10%2FCounterStrike%2F%3Fl%3Dturkish&psig=AOvVaw0mYqGqEY3Ge6dunmojr7Ie&ust=1721386819096000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNj0jOO3sIcDFQAAAAAdAAAAABAE)
+![ ](https://www.google.com/url?sa=i&url=https%3A%2F%2Fstore.steampowered.com%2Fapp%2F10%2FCounterStrike%2F%3Fl%3Dturkish&psig=AOvVaw0mYqGqEY3Ge6dunmojr7Ie&ust=1721386819096000&source=imAABAE)
 
 <html lang="en">
 <head>
