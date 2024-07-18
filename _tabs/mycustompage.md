@@ -1,11 +1,10 @@
 ---
 layout: page
-title: Benim Özel Sayfam
+title: Manas Launcher
 icon: fa-solid fa-gun
 permalink: /mycustompage/
 ---
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +22,7 @@ permalink: /mycustompage/
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
+            background-color: rgb(24, 24, 24); /* Sitenizin arka plan rengi */
         }
 
         .download-container {
@@ -33,6 +32,7 @@ permalink: /mycustompage/
         .download-container h1 {
             font-size: 2em;
             margin-bottom: 20px;
+            color: #ffffff; /* Başlık rengi */
         }
 
         .download-button {
@@ -41,15 +41,16 @@ permalink: /mycustompage/
             margin: 10px;
             font-size: 1em;
             color: #fff;
-            background-color: #007bff;
+            background-color: #5f2992; /* Buton rengi */
             border: none;
             border-radius: 5px;
             cursor: pointer;
             text-decoration: none;
+            transition: background-color 0.3s ease;
         }
 
         .download-button:hover {
-            background-color: #0056b3;
+            background-color: #9b36fa; /* Buton hover rengi */
         }
 
         .download-button i {
@@ -66,5 +67,6 @@ permalink: /mycustompage/
     </div>
 </body>
 </html>
+
 
 
