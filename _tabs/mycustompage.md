@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Benim Özel Sayfam
-icon: fas fa-tags
+icon: fa-solid fa-gun
 permalink: /mycustompage/
 ---
 
