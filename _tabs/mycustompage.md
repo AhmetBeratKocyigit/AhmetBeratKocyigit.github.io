@@ -5,7 +5,7 @@ icon: fa-solid fa-gun
 permalink: /mycustompage/
 ---
 
-![ ](assets/image.jpeg)
+#Manas Launcher
 
 ## CS 1.6 Launcher ve Setup 1 İndirme
 
