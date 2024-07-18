@@ -5,7 +5,7 @@ icon: fa-solid fa-gun
 permalink: /mycustompage/
 ---
 
-![ ](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.esportelandia.com.br%2Fe)
+![ ](assets/image.jpeg)
 
 ## CS 1.6 Launcher ve Setup 1 İndirme
 
