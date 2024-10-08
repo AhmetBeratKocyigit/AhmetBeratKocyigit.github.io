@@ -16,7 +16,7 @@ permalink: /linktree/
 <body>
     <div class="container">
         <div class="profile">
-            <img src="/assets/css/pp.png" alt="Profile Picture" class="profile-img">
+            <img src="/assets/css/pp.jpg" alt="Profile Picture" class="profile-img">
             <h1 class="username">Ahmet Koçyiğit</h1>
             <p class="bio">Welcome to my links! Check them out below.</p>
         </div>
