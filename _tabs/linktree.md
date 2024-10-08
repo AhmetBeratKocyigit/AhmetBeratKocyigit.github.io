@@ -11,12 +11,12 @@ permalink: /linktree/
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahmet Koçyiğit</title>
-    <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="stylesheet" href="/assets/css/custom_style.css">
 </head>
 <body>
     <div class="container">
         <div class="profile">
-            <img src="/assets/pp.jpg" alt="Profile Picture" class="profile-img">
+            <img src="/assets/css/pp.png" alt="Profile Picture" class="profile-img">
             <h1 class="username">Ahmet Koçyiğit</h1>
             <p class="bio">Welcome to my links! Check them out below.</p>
         </div>
