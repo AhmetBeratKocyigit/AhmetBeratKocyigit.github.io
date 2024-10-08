@@ -1,11 +1,10 @@
 ---
 layout: page
-title: linkree
+title: linktree
 icon: fa-solid fa-link
 permalink: /linktree/
 ---
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
