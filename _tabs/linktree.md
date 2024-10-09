@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: null
 title: linktree
 icon: fa-solid fa-link
 permalink: /linktree/
