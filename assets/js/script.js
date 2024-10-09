@@ -134,7 +134,7 @@ document.addEventListener('keydown', function (event) {
 
         //  turn back
         setTimeout(() => {
-            title.textContent = 'Çıkalım mı artık?';
+            title.textContent = 'Buluşalım mı artık?';
         }, 2000);
     }
 }
