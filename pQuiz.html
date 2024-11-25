@@ -22,7 +22,7 @@ permalink: /pquiz/
         #container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-evenly; /* Butonları eşit aralıklı hizalar */
             max-width: 100%;
             margin-top: 20px;
             gap: 10px; /* Butonlar arası boşluk */
@@ -41,11 +41,17 @@ permalink: /pquiz/
 
         /* Telefonlar için media query */
         @media (max-width: 768px) {
+            #container {
+                justify-content: center; /* Telefon ekranında ortalar */
+                gap: 5px; /* Daha az boşluk */
+            }
             .button {
-                width: 90px; /* Telefon için genişlik daha da küçültüldü */
-                height: 120px; /* Telefon için yükseklik daha da küçültüldü */
+                width: 80px; /* Telefon için genişlik küçültüldü */
+                height: 100px; /* Telefon için yükseklik küçültüldü */
+                margin: 3px; /* Telefon için daha dar margin */
             }
         }
+
 
 
         .dolu {
