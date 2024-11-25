@@ -21,17 +21,17 @@ permalink: /pquiz/
         }
         #container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly; /* Butonları eşit aralıklı hizalar */
-            max-width: 100%;
+            justify-content: space-between; /* Butonlar arasında eşit boşluk */
+            flex-wrap: nowrap; /* Tek satırda kalsın */
+            max-width: 100%; /* Tam genişlikte container */
             margin-top: 20px;
-            gap: 10px; /* Butonlar arası boşluk */
+            gap: 5px; /* Butonlar arasında boşluk */
+            overflow-x: auto; /* Ekran çok küçükse yatay kaydırma */
         }
 
         .button {
-            width: 200px; /* Bilgisayar için genişlik */
-            height: 250px; /* Bilgisayar için yükseklik */
-            margin: 5px;
+            width: calc(20% - 10px); /* Her satıra tam 5 buton sığdır */
+            aspect-ratio: 1 / 1.2; /* En-boy oranı */
             border: none;
             background-size: cover;
             background-position: center;
@@ -41,16 +41,12 @@ permalink: /pquiz/
 
         /* Telefonlar için media query */
         @media (max-width: 768px) {
-            #container {
-                justify-content: center; /* Telefon ekranında ortalar */
-                gap: 1px; /* Daha az boşluk */
-            }
             .button {
-                width: 80px; /* Telefon için genişlik küçültüldü */
-                height: 100px; /* Telefon için yükseklik küçültüldü */
-                margin: 1px; /* Telefon için daha dar margin */
+                width: calc(18% - 8px); /* Daha küçük ekranlarda 5 buton sığdır */
+                aspect-ratio: 1 / 1.5; /* Daha dar en-boy oranı */
             }
         }
+
 
 
 
