@@ -8,7 +8,7 @@ permalink: /pquiz/
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pTest | Beta</title>
+    <title>pquiz</title>
     <style>
         body {
             margin: 0;
@@ -23,19 +23,30 @@ permalink: /pquiz/
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            max-width: 1200px;
+            max-width: 100%;
             margin-top: 20px;
+            gap: 10px; /* Butonlar arası boşluk */
         }
+
         .button {
-            width: 200px;
-            height: 250px;
-            margin: 15px;
+            width: 150px; /* Varsayılan genişlik */
+            height: 200px; /* Varsayılan yükseklik */
+            margin: 5px;
             border: none;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             cursor: pointer;
         }
+
+        /* Mobil cihazlar için media query */
+        @media (max-width: 768px) {
+            .button {
+                width: 100px; /* Buton genişliği küçültülüyor */
+                height: 130px; /* Buton yüksekliği küçültülüyor */
+            }
+        }
+
         .dolu {
             background-image: url('/assets/images/dolu.mns');
         }
