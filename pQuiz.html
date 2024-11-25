@@ -29,8 +29,8 @@ permalink: /pquiz/
         }
 
         .button {
-            width: 150px; /* Varsayılan genişlik */
-            height: 200px; /* Varsayılan yükseklik */
+            width: 200px; /* Bilgisayar için genişlik */
+            height: 250px; /* Bilgisayar için yükseklik */
             margin: 5px;
             border: none;
             background-size: cover;
@@ -39,13 +39,14 @@ permalink: /pquiz/
             cursor: pointer;
         }
 
-        /* Mobil cihazlar için media query */
+        /* Telefonlar için media query */
         @media (max-width: 768px) {
             .button {
-                width: 100px; /* Buton genişliği küçültülüyor */
-                height: 130px; /* Buton yüksekliği küçültülüyor */
+                width: 90px; /* Telefon için genişlik daha da küçültüldü */
+                height: 120px; /* Telefon için yükseklik daha da küçültüldü */
             }
         }
+
 
         .dolu {
             background-image: url('/assets/images/dolu.mns');
