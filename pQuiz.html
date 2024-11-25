@@ -21,16 +21,17 @@ permalink: /pquiz/
         }
         #container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly; /* Butonları eşit aralıklı hizalar */
+            flex-wrap: wrap; /* Butonların bir satırda kalmasını sağlar */
+            justify-content: space-between; /* Butonları düzgün hizalar */
             max-width: 100%;
             margin-top: 20px;
             gap: 10px; /* Butonlar arası boşluk */
+            padding: 0 10px; /* Ekran kenarlarına boşluk */
         }
 
         .button {
-            width: 200px; /* Bilgisayar için genişlik */
-            height: 250px; /* Bilgisayar için yükseklik */
+            width: 300px; /* Bilgisayar için genişlik */
+            height: 350px; /* Bilgisayar için yükseklik */
             margin: 5px;
             border: none;
             background-size: cover;
@@ -42,15 +43,17 @@ permalink: /pquiz/
         /* Telefonlar için media query */
         @media (max-width: 768px) {
             #container {
-                justify-content: center; /* Telefon ekranında ortalar */
-                gap: 1px; /* Daha az boşluk */
+                justify-content: space-evenly; /* Telefon ekranında düzgün hizalar */
+                gap: 5px; /* Daha az boşluk */
             }
             .button {
-                width: 80px; /* Telefon için genişlik küçültüldü */
-                height: 100px; /* Telefon için yükseklik küçültüldü */
-                margin: 1px; /* Telefon için daha dar margin */
+                width: calc(20% - 10px); /* Ekranın %20'sine göre genişlik */
+                height: auto; /* Otomatik yüksekliği korur */
+                aspect-ratio: 1 / 1.2; /* En-boy oranı ayarlandı */
+                margin: 3px; /* Daha dar margin */
             }
         }
+
 
 
 
@@ -121,7 +124,6 @@ permalink: /pquiz/
     </div>
 
     <script>
-        // Test data
         const testler = {
             "Test1": ["dolu", "bos", "dolu", "bos", "doru"],
             "Test2": ["bos", "dolu", "dolu", "bos", "doru"],
