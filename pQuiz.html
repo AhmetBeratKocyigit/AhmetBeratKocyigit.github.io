@@ -6,9 +6,10 @@ permalink: /pquiz/
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pquiz</title>
+    <title>pQuiz</title>
     <style>
         body {
             margin: 0;
@@ -21,14 +22,14 @@ permalink: /pquiz/
         }
         #container {
             display: flex;
-            flex-wrap: nowrap; /* Tek satırda kalsın */
-            justify-content: space-evenly; /* Butonları düzgün hizalar */
-            align-items: center; /* Dikeyde ortalama */
+            flex-wrap: nowrap; 
+            justify-content: space-evenly;
+            align-items: center; 
             max-width: 100%;
             margin-top: 20px;
-            gap: 10px; /* Butonlar arası boşluk */
-            padding: 0 10px; /* Ekran kenarlarına boşluk */
-            height: 80vh; /* Container'ı ekran yüksekliği kadar yaparak tam ortalar */
+            gap: 10px; 
+            padding: 0 10px; 
+            height: 80vh; 
 
         }
 
@@ -50,10 +51,10 @@ permalink: /pquiz/
                 gap: 5px; /* Daha az boşluk */
             }
             .button {
-                width: 90; /* Ekranın %20'sine göre genişlik */
-                height: auto; /* Otomatik yüksekliği korur */
-                aspect-ratio: 1 / 1.2; /* En-boy oranı ayarlandı */
-                margin: 3px; /* Daha dar margin */
+                width: 90; 
+                height: auto;
+                aspect-ratio: 1 / 1.2; 
+                margin: 3px; 
             }
         }
 
@@ -112,6 +113,38 @@ permalink: /pquiz/
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 5;
         }
+        footer {
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(54, 54, 54);
+            width: 100%;
+            height: 4vh;
+            text-align: center;
+            font-weight: 600;
+            font-size: 18px;
+            gap: 30px; /* İkonlar arası boşluk */
+        }
+
+        footer a {
+            text-decoration: none;
+            background: -webkit-linear-gradient(65deg, #ffa952, #8345ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: 0.3s ease;
+            scale: 1;
+            display: flex;
+            align-items: center;
+            gap: 5px; /* İkon ve yazı arasındaki boşluk */
+        }
+
+        footer a:hover {
+            transition: 0.3s ease;
+            scale: 1.1;
+        }
+
     </style>
 </head>
 <body>
@@ -128,7 +161,7 @@ permalink: /pquiz/
 
     <script>
         const testler = {
-            "Test1": ["dolu", "bos", "dolu", "bos", "doru"],
+            "Test1": ["dolu", "bos", "dolu", "bos", "doru",],
             "Test2": ["bos", "dolu", "dolu", "bos", "doru"],
             "Test3": ["dolu", "bos", "dolu", "dolu", "doru"],
             "Test4": ["dolu", "dolu", "dolu", "bos", "doru"],
@@ -137,7 +170,12 @@ permalink: /pquiz/
             "Test7": ["dolu", "doru", "dolu", "doru", "dolu"],
             "Test8": ["bos", "dolu", "dolu", "bos", "doru"],
             "Test9": ["dolu", "bos", "doru", "dolu", "dolu"],
-            "Test10": ["doru", "dolu", "bos", "dolu", "doru"],
+            "Test10": ["bos", "dolu", "bos", "doru", "bos", "dolu", "bos"],
+            "Test11": ["bos", "dolu", "bos", "bos", "dolu", "bos", "doru"],
+            "Test12": ["dolu", "dolu", "bos", "doru", "dolu", "bos", "dolu"],
+            "Test13": ["bos", "dolu", "dolu", "bos", "doru", "dolu", "bos"],
+            "Test14": ["dolu", "bos", "dolu", "bos", "doru", "dolu", "dolu"],
+            "Test15": ["doru", "bos", "dolu", "dolu", "bos", "dolu", "bos"]
         };
 
         let currentTest = testler["Test1"];
@@ -151,19 +189,19 @@ permalink: /pquiz/
 
         // Update the buttons
         function updateButtons() {
-            container.innerHTML = ''; // Clear existing buttons
+            container.innerHTML = ''; 
 
             currentTest.forEach((state) => {
                 const button = document.createElement('button');
                 button.classList.add('button');
                 if (state === "dolu") {
                     button.classList.add('dolu');
-                    button.onclick = showPopup; // Show popup for wrong answer
+                    button.onclick = showPopup; 
                 } else if (state === "bos") {
                     button.classList.add('bos');
-                    button.onclick = showPopup; // Show popup for wrong answer
+                    button.onclick = showPopup; 
                 } else if (state === "doru") {
-                    button.classList.add('bos'); // Correct answer uses the 'bos' image
+                    button.classList.add('bos'); 
                     button.onclick = correctClick;
                 }
                 container.appendChild(button);
@@ -190,7 +228,7 @@ permalink: /pquiz/
             dogruCounter.textContent = `Doğru Sayısı: ${dogruSayisi}`;
             popup.style.display = 'none';
             overlay.style.display = 'none';
-            currentTest = testler["Test1"]; // Reset to the first test
+            currentTest = testler["Test1"]; 
             updateButtons();
         }
 
@@ -208,5 +246,18 @@ permalink: /pquiz/
         // Initialize the buttons
         updateButtons();
     </script>
+    <footer>
+        <a href="https://www.instagram.com/ahmet.kocygt/" target="_blank" rel="noopener noreferrer" title="Instagram">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://github.com/ahmetberatkocyigit" target="_blank" rel="noopener noreferrer" title="GitHub">
+            <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://www.ahmetberatkocyigit.github.io" target="_blank" rel="noopener noreferrer" title="Website">
+            <i class="fas fa-globe"></i> Website
+        </a>
+    </footer>
+    
+</body> 
 </body>
 </html>
