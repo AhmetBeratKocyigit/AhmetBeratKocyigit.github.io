@@ -15,7 +15,7 @@ permalink: /boykot/
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #3a3636;
+      background-color: #b4b4b4;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -28,7 +28,8 @@ permalink: /boykot/
     h1 {
       color: #E53935;
       font-size: 2rem;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
+      margin-top: 0px;
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
       letter-spacing: 2px;
       font-weight: 600;
@@ -56,7 +57,7 @@ permalink: /boykot/
 
     #alert {
       font-size: 1.2rem;
-      margin-top: 10px;
+      margin-top: 5px;
       padding: 10px;
       border-radius: 5px;
       color: white;
@@ -115,10 +116,10 @@ permalink: /boykot/
       const alertElement = document.getElementById('alert');
       if (isBoycotted) {
         alertElement.className = 'boykot';
-        alertElement.innerHTML = `Boykot Edilen Marka! Marka Kodu: ${brandCode}`;
+        alertElement.innerHTML = `Boykot Edilen Marka!`;
       } else {
         alertElement.className = 'yok';
-        alertElement.innerHTML = `Boykot Edilmeyen Marka! Marka Kodu: ${brandCode}`;
+        alertElement.innerHTML = `Boykot Edilmeyen Marka!`;
       }
     }
 
