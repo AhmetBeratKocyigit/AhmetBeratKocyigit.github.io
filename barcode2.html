@@ -1,27 +1,28 @@
 ---
 layout: null
-permalink: /barcode2/
+permalink: /barcode/
 ---
 
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Barkod Okuyucu - Boykot Kontrolü</title>
+  <title>Boykot Kontrolü</title>
   <script src="https://unpkg.com/html5-qrcode"></script>
   
   <style>
     body {
       font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
       background-color: #222;
       display: flex;
       justify-content: center;
       align-items: center;
+      min-height: 100vh;
       flex-direction: column;
       text-align: center;
-      color: white;
-      min-height: 100vh;
-      margin: 0;
+      color: #fff;
     }
 
     h1 {
@@ -34,19 +35,15 @@ permalink: /barcode2/
     }
 
     #reader {
-      width: 100%;
+      width: 95%;
       max-width: 500px;
       height: auto;
-      border: 2px dashed #E53935;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      margin-bottom: 20px;
-      transition: transform 0.3s ease, opacity 0.5s ease;
-    }
-
-    #reader:hover {
-      opacity: 0.8;
-      transform: scale(1.05);
+      border: 2px solid #E53935;
+      border-radius:15px;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+      margin: 20px;
+      margin-top: 0px;
+      transition: transform 0.3s ease;
     }
 
     p {
@@ -77,43 +74,27 @@ permalink: /barcode2/
     .yok {
       background-color: #388E3C;
     }
-
-    .scanner-message {
-      font-size: 1.5rem;
-      color: #888;
-      margin-top: 30px;
-    }
   </style>
 </head>
 <body>
 
-  <h1>Barkod Okuyucu - Boykot Kontrolü</h1>
+  <h1>Boykot Kontrolü</h1>
   
   <div id="reader"></div>
   
-  <p>Okunan Kod: <span id="result"></span></p>
-  <p>Marka Kodu: <span id="brandCode"></span></p>
 
   <div id="alert"></div>
 
-  <div class="scanner-message">
-    Barkod okutmak için kamerayı kullanın.
-  </div>
-
   <script>
     // Boykot edilen markaların marka kodları (örnek)
-    const boycottList = ["1234", "5678", "9012"]; // Bu listeyi gerçek boykot edilen marka kodları ile doldurun
+    const boycottList = ["0504", "5678", "9012"]; // Bu listeyi gerçek boykot edilen marka kodları ile doldurun
 
     function startScanning() {
       function onScanSuccess(decodedText, decodedResult) {
         console.log(`Barkod: ${decodedText}`);
-        document.getElementById('result').innerText = decodedText;
 
         // Barkoddan marka kodunu çek
         const brandCode = decodedText.substring(3, 7);  // Barkodun 4. ile 7. hanesi
-
-        // Marka kodunu ekrana yazdır
-        document.getElementById('brandCode').innerText = brandCode;
 
         // Boykot kontrolü yap
         if (boycottList.includes(brandCode)) {
@@ -146,7 +127,7 @@ permalink: /barcode2/
       }
     }
 
-    // Başlatma
+
     startScanning();
   </script>
 
