@@ -1,0 +1,36 @@
+---
+layout: null
+permalink: /barcode/
+---
+
+<html>
+<head>
+  <title>Barkod Okuyucu</title>
+  <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+  <h1>Barkod Okuyucu</h1>
+  <div id="reader" style="width: 500px;"></div>
+  <p>Okunan Kod: <span id="result"></span></p>
+
+  <script>
+    function onScanSuccess(decodedText, decodedResult) {
+      // Barkod başarıyla okunduğunda çalışır
+      console.log(`Barkod: ${decodedText}`);
+      document.getElementById('result').innerText = decodedText;
+    }
+
+    function onScanFailure(error) {
+      // Hataları görmezden gelebilirsiniz
+      // console.warn(`Scan error: ${error}`);
+    }
+
+    const html5QrcodeScanner = new Html5QrcodeScanner(
+      "reader", 
+      { fps: 10, qrbox: 250 }, 
+      false
+    );
+    html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+  </script>
+</body>
+</html>
