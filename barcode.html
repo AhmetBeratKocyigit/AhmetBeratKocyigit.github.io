@@ -7,7 +7,7 @@ permalink: /barcode/
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Barkod Okuyucu - Boykot Kontrolü</title>
+  <title>Boykot Kontrolü</title>
   <script src="https://unpkg.com/html5-qrcode"></script>
   
   <style>
@@ -15,7 +15,7 @@ permalink: /barcode/
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #222;
+      background-color: #3a3636;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -35,21 +35,17 @@ permalink: /barcode/
     }
 
     #reader {
-      width: 100%;
+      background-color: rgb(117, 117, 117);
+      width: 95%;
       max-width: 500px;
       height: auto;
       border: 2px solid #E53935;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      margin-bottom: 20px;
+      border-radius:15px;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+      margin: 20px;
+      margin-top: 0px;
+      margin-bottom: 0px;
       transition: transform 0.3s ease;
-    }
-
-    p {
-      font-size: 1.2rem;
-      color: #ddd;
-      margin-top: 20px;
-      font-weight: 400;
     }
 
     #result {
@@ -60,7 +56,7 @@ permalink: /barcode/
 
     #alert {
       font-size: 1.2rem;
-      margin-top: 15px;
+      margin-top: 10px;
       padding: 10px;
       border-radius: 5px;
       color: white;
@@ -77,12 +73,10 @@ permalink: /barcode/
 </head>
 <body>
 
-  <h1>Barkod Okuyucu - Boykot Kontrolü</h1>
+  <h1>Boykot Kontrolü</h1>
   
   <div id="reader"></div>
   
-  <p>Okunan Kod: <span id="result"></span></p>
-  <p>Marka Kodu: <span id="brandCode"></span></p>
 
   <div id="alert"></div>
 
@@ -93,13 +87,9 @@ permalink: /barcode/
     function startScanning() {
       function onScanSuccess(decodedText, decodedResult) {
         console.log(`Barkod: ${decodedText}`);
-        document.getElementById('result').innerText = decodedText;
 
         // Barkoddan marka kodunu çek
         const brandCode = decodedText.substring(3, 7);  // Barkodun 4. ile 7. hanesi
-
-        // Marka kodunu ekrana yazdır
-        document.getElementById('brandCode').innerText = brandCode;
 
         // Boykot kontrolü yap
         if (boycottList.includes(brandCode)) {
@@ -132,7 +122,7 @@ permalink: /barcode/
       }
     }
 
-    // Başlatma
+
     startScanning();
   </script>
 
