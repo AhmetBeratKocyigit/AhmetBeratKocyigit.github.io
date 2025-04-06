@@ -1,0 +1,147 @@
+---
+layout: null
+permalink: /screen/
+---
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" href="https://cdn-icons-png.freepik.com/512/2809/2809455.png?ga=GA1.1.1324265917.1743956224" type="image/x-icon">
+  <title>ScreenSaver</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: #000;
+      color: #fff;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .gallery video {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      border: 2px solid #444;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+
+    .gallery video:hover {
+      transform: scale(1.05);
+      border-color: #fff;
+    }
+
+    .screensaver {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      cursor: none;
+    }
+
+    .screensaver video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gallery">
+    <video src="https://cdn.pixabay.com/video/2022/02/04/106722-673786473_large.mp4" muted loop></video>
+    <video src="https://cdn.pixabay.com/video/2023/09/06/179352-861813091_large.mp4" muted loop></video>
+    <video src="https://cdn.pixabay.com/video/2021/08/06/84086-584871133_large.mp4" muted loop></video>
+    <video src="https://cdn.pixabay.com/video/2024/03/11/203845-922675645_large.mp4" muted loop></video>
+    <video src="https://cdn.pixabay.com/video/2019/02/13/21368-317182818_large.mp4" muted loop></video>
+    <video src="https://cdn.pixabay.com/video/2021/09/13/88481-606110665_large.mp4" muted loop></video>
+    <video src="https://cdn.pixabay.com/video/2022/01/04/103434-662525884_large.mp4" muted loop></video>
+    <video src="https://cdn.pixabay.com/video/2021/10/10/91562-629172467_large.mp4" muted loop></video>
+    <video src="https://motionbgs.com/media/6839/black-haired-girl.960x540.mp4" muted loop></video>
+    <video src="https://cdn.pixabay.com/video/2017/11/02/12716-241674181_large.mp4" muted loop></video>
+    <video src="https://motionbgs.com/media/5871/wolf-demon-girl.960x540.mp4" muted loop></video>
+    <video src="https://motionbgs.com/media/1061/bmw-m3-f30-under-the-rain.960x540.mp4" muted loop></video>
+    <video src="https://motionbgs.com/media/7513/evening-drive-and-windmills.960x540.mp4" muted loop></video>
+    <video src="https://motionbgs.com/media/4128/bmw-m4-night-rain-drift.960x540.mp4" muted loop></video>
+    <video src="https://motionbgs.com/media/1033/the-drive-on-the-road-at-sunset.960x540.mp4" muted loop></video>
+    <video src="https://motionbgs.com/media/4597/lexus-on-the-freeway.960x540.mp4" muted loop></video>
+    <video src="https://motionbgs.com/media/2996/jake-the-dog.960x540.mp4" muted loop></video>
+    <video src="https://motionbgs.com/media/4466/omen-valorant.960x540.mp4" muted loop></video>
+    <video src="https://motionbgs.com/media/1040/astronaut-walking-on-the-moon.960x540.mp4" muted loop></video>
+    <video src="https://motionbgs.com/media/5682/cat-under-rain.960x540.mp4" muted loop></video>
+  </div>
+
+  <div class="screensaver" id="screensaver">
+    <video id="fullscreenVideo" autoplay loop muted></video>
+  </div>
+
+  <script>
+    const galleryVideos = document.querySelectorAll('.gallery video');
+    const screensaver = document.getElementById('screensaver');
+    const fullscreenVideo = document.getElementById('fullscreenVideo');
+
+    // Videoya tıklayınca fullscreen başlat
+    galleryVideos.forEach(video => {
+      video.addEventListener('click', () => {
+        fullscreenVideo.src = video.src;
+        screensaver.style.display = 'flex';
+        fullscreenVideo.play();
+
+        // Tarayıcı fullscreen modu
+        if (screensaver.requestFullscreen) {
+          screensaver.requestFullscreen();
+        } else if (screensaver.webkitRequestFullscreen) {
+          screensaver.webkitRequestFullscreen();
+        } else if (screensaver.msRequestFullscreen) {
+          screensaver.msRequestFullscreen();
+        }
+      });
+    });
+
+    // Screensaver'dan çıkış fonksiyonu
+    function exitScreensaver() {
+      screensaver.style.display = 'none';
+      fullscreenVideo.pause();
+      fullscreenVideo.src = '';
+
+      // Fullscreen modundan çık
+      if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      }
+    }
+
+    // ESC veya tıkla çık
+    screensaver.addEventListener('click', exitScreensaver);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        exitScreensaver();
+      }
+    });
+  </script>
+
+</body>
+</html>
