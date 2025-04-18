@@ -1,0 +1,342 @@
+---
+layout: null
+permalink: /web/operator
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assests/css/compiler.css">
+    <link rel="stylesheet" href="../assests/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-...=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body style="text-align: center;">
+    <div class="bar">
+        <div class="logo-bar"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png">
+            <p>Web Tabanlı Uygulama Geliştirme</p></div>
+
+        <div class="butons">
+            <a href="giris.html" id="buton">İletişim</a>
+            <a href="giris.html" id="gbuton">Compiler</a>
+
+        </div>
+    </div>
+    <h2 class="grid-title" style="margin-top: 30px; margin-bottom: 10px;">Operatörler</h2>
+    <div class="container" style="text-align: left;">
+      
+        <h1>JavaScript İle Operatörler</h1>
+    <p>Her programlama dilinde olduğu gibi JavaScript'te de çeşitli görevler için operatörler kullanılır</p>
+    <p>Bu görevler genel olarak şunlardır:</p>
+    <ul style="margin-left: 30px;">
+        <li>Aritmetiksel Operatörler</li>
+        <li>Atama Operatörleri</li>
+        <li>Karşılaştırma Operatörleri</li>
+        <li>Mantıksal operatörler</li>
+    </ul>
+    <h2>1 - Aritmetiksel Operatörler</h2>
+    <p>Sayılar üzerinde toplama, çıkarma, çarpma, bölme ve mod alma gibi matematiksel işlemleri yapmak için aritmetik operatörleri kullanılır.</p>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Operatör</th>
+                    <th>Açıklama</th>
+                    <th>Örnek</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="operator">+</td>
+                    <td>Toplama</td>
+                    <td class="example">5 + 3 = 8</td>
+                </tr>
+                <tr>
+                    <td class="operator">-</td>
+                    <td>Çıkarma</td>
+                    <td class="example">5 - 2 = 3</td>
+                </tr>
+                <tr>
+                    <td class="operator">*</td>
+                    <td>Çarpma</td>
+                    <td class="example">4 * 2 = 8</td>
+                </tr>
+                <tr>
+                    <td class="operator">/</td>
+                    <td>Bölme</td>
+                    <td class="example">10 / 2 = 5</td>
+                </tr>
+                <tr>
+                    <td class="operator">%</td>
+                    <td>Mod (kalan)</td>
+                    <td class="example">10 % 3 = 1</td>
+                </tr>
+                <tr>
+                    <td class="operator">++</td>
+                    <td>Arttırma</td>
+                    <td class="example">let x = 1; x++ = 2</td>
+                </tr>
+                <tr>
+                    <td class="operator">--</td>
+                    <td>Azaltma</td>
+                    <td class="example">let x = 5; x-- = 4</td>
+                </tr>
+                <tr>
+                    <td class="operator">**</td>
+                    <td>Üs alma</td>
+                    <td class="example">2 ** 3 = 8</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <code-compiler>
+        let sayi = 10;
+
+console.log("Toplama: " + (10 + 5));
+console.log("Cikarma: " + (10 - 5));
+console.log("Carpma: " + (10 * 5));
+console.log("Bolme: " + (10 / 5));
+
+    </code-compiler>
+
+    <hr class="custom-line">
+    <h3>Aritmetiksel Operatörlerde işlem önceliği</h3>
+    <p>Operatör önceliği aritmetiksel operatörlerde işlem sırasını Matemetik kuralları belirler.</p>
+
+    <code-compiler>
+        var sayi = 50 + 5 * 3;
+console.log(sayi);
+    </code-compiler>
+
+    <p>Mesela yukarıdaki örnekte matematik kurallarına uygun olarak önce çarpma sonra toplama işlemi yapılmıştır.</p>
+    <p>Ama hangi işlemin önce yapılacağını parantez işareti kullanarak kendimiz de belirliyebiliriz</p>
+    <code-compiler>
+        var sayi = (50 + 5) * 3;
+console.log(sayi);
+    </code-compiler>
+
+    <p>Eğerki kullanılan operatörler kendi içinde önceliğe sahip değil ise işlem soldan sağa doğru yapılır.</p>
+
+    <code-compiler>
+        var sayi = 50 + 5 - 3;
+console.log(sayi);
+    </code-compiler>
+
+    <h2>2 - Atama Operatörleri</h2>
+    <p>Değişkenlere değer atamak için atama operatörleri kullanılır. Temel atama operatörü "=" işaretidir. Diğer atama operatörleri, bir işlemi kısaltılmış şekilde yaparak aynı anda hem atama hem de işlem gerçekleştirir.</p>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Operatör</th>
+                    <th>Açıklama</th>
+                    <th>Örnek</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="operator">=</td>
+                    <td>Eşittir (atama)</td>
+                    <td class="example">let x = 10;</td>
+                </tr>
+                <tr>
+                    <td class="operator">+=</td>
+                    <td>Toplayarak atama</td>
+                    <td class="example">let x = 5; x += 3; (x = 8)</td>
+                </tr>
+                <tr>
+                    <td class="operator">-=</td>
+                    <td>Çıkararak atama</td>
+                    <td class="example">let x = 5; x -= 2; (x = 3)</td>
+                </tr>
+                <tr>
+                    <td class="operator">*=</td>
+                    <td>Çarparak atama</td>
+                    <td class="example">let x = 5; x *= 4; (x = 20)</td>
+                </tr>
+                <tr>
+                    <td class="operator">/=</td>
+                    <td>Bölerek atama</td>
+                    <td class="example">let x = 10; x /= 2; (x = 5)</td>
+                </tr>
+                <tr>
+                    <td class="operator">%=</td>
+                    <td>Mod alarak atama</td>
+                    <td class="example">let x = 10; x %= 3; (x = 1)</td>
+                </tr>
+                <tr>
+                    <td class="operator">**=</td>
+                    <td>Üs alarak atama</td>
+                    <td class="example">let x = 2; x **= 3; (x = 8)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <code-compiler>
+        let sayiAtama = 5;
+sayiAtama += 5;
+console.log("+= operatörü: " + sayiAtama); // Çıktı: 10
+
+sayiAtama -= 3;
+console.log("-= operatörü: " + sayiAtama); // Çıktı: 7
+
+sayiAtama *= 2;
+console.log("*= operatörü: " + sayiAtama); // Çıktı: 14
+
+sayiAtama /= 7;
+console.log("/= operatörü: " + sayiAtama); // Çıktı: 2
+
+sayiAtama %= 3;
+console.log("%= operatörü: " + sayiAtama); // Çıktı: 2
+
+sayiAtama **= 2;
+console.log("**= operatörü: " + sayiAtama); // Çıktı: 4
+    </code-compiler>
+
+    <hr class="custom-line">
+
+    <h2>3 - Karşılaştırma Operatörleri</h2>
+    <p>İki değeri karşılaştırmak ve sonucunda bir boolean (true veya false) değer döndürmek için karşılaştırma operatörleri kullanılır. Bu operatörler genellikle koşullu ifadelerde (if, else if, else) ve döngülerde kullanılır.</p>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Operatör</th>
+                    <th>Açıklama</th>
+                    <th>Örnek</th>
+                    <th>Sonuç</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="operator">==</td>
+                    <td>Eşittir (değere göre)</td>
+                    <td class="example">5 == '5'</td>
+                    <td>true</td>
+                </tr>
+                <tr>
+                    <td class="operator">===</td>
+                    <td>Kesin eşittir (değere ve türe göre)</td>
+                    <td class="example">5 === '5'</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td class="operator">!=</td>
+                    <td>Eşit değildir (değere göre)</td>
+                    <td class="example">5 != '5'</td>
+                    <td>false</td>
+                </tr>
+                <tr>
+                    <td class="operator">!==</td>
+                    <td>Kesin eşit değildir (değere ve türe göre)</td>
+                    <td class="example">5 !== '5'</td>
+                    <td>true</td>
+                </tr>
+                <tr>
+                    <td class="operator">></td>
+                    <td>Büyüktür</td>
+                    <td class="example">5 > 3</td>
+                    <td>true</td>
+                </tr>
+                <tr>
+                    <td class="operator">&lt;</td>
+                    <td>Küçüktür</td>
+                    <td class="example">3 &lt; 5</td>
+                    <td>true</td>
+                </tr>
+                <tr>
+                    <td class="operator">>=</td>
+                    <td>Büyük veya eşittir</td>
+                    <td class="example">5 >= 5</td>
+                    <td>true</td>
+                </tr>
+                <tr>
+                    <td class="operator">&lt;=</td>
+                    <td>Küçük veya eşittir</td>
+                    <td class="example">3 &lt;= 5</td>
+                    <td>true</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <code-compiler>
+        console.log("5 == '5': " + (5 == '5'));
+console.log("5 === '5': " + (5 === '5'));
+console.log("5 != '5': " + (5 != '5'));
+console.log("5 !== '5': " + (5 !== '5'));
+console.log("10 > 5: " + (10 > 5));
+console.log("3 < 7: " + (3 < 7));
+console.log("5 >= 5: " + (5 >= 5));
+console.log("3 <= 5: " + (3 <= 5));
+    </code-compiler>
+
+    <hr class="custom-line">
+
+    <h2>4 - Mantıksal Operatörler</h2>
+    <p>Boolean değerleri (true veya false) üzerinde mantıksal işlemler yapmak için mantıksal operatörler kullanılır. Genellikle birden fazla koşulu birleştirmek veya bir koşulun sonucunu tersine çevirmek için kullanılırlar.</p>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Operatör</th>
+                    <th>Açıklama</th>
+                    <th>Örnek</th>
+                    <th>Sonuç</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="operator">&&</td>
+                    <td>VE (AND) - Her iki koşul da doğruysa true döner</td>
+                    <td class="example">true && true</td>
+                    <td>true</td>
+                </tr>
+                <tr>
+                    <td class="operator">||</td>
+                    <td>VEYA (OR) - Koşullardan en az biri doğruysa true döner</td>
+                    <td class="example">true || false</td>
+                    <td>true</td>
+                </tr>
+                <tr>
+                    <td class="operator">!</td>
+                    <td>DEĞİL (NOT) - Koşulun tersini döner</td>
+                    <td class="example">!true</td>
+                    <td>false</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <code-compiler>
+        let kosul1 = 5 > 3;   // true
+let kosul2 = 10 < 20; // true
+let kosul3 = 4 == 6;  // false
+
+console.log("kosul1 && kosul2: " + (kosul1 && kosul2)); // Çıktı: true
+console.log("kosul1 && kosul3: " + (kosul1 && kosul3)); // Çıktı: false
+console.log("kosul1 || kosul3: " + (kosul1 || kosul3)); // Çıktı: true
+console.log("!kosul1: " + (!kosul1));           // Çıktı: false
+console.log("!kosul3: " + (!kosul3));           // Çıktı: true
+    </code-compiler>
+    
+    <script src="../assests/js/compiler.js"></script>
+    <script src="../assests/js/buttons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+</body>
+</html>

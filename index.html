@@ -1,4 +1,105 @@
 ---
-layout: home
-# Index page
+layout: null
+permalink: /web/
 ---
+
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Tabanlı Uygulama Geliştirme</title>
+    <link rel="stylesheet" href="assests/css/compiler.css">
+    <link rel="stylesheet" href="assests/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-...=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body>
+    <div class="bar">
+        <div class="logo-bar"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/800px-Unofficial_JavaScript_logo_2.svg.png">
+            <p>Web Tabanlı Uygulama Geliştirme</p></div>
+
+        <div class="butons">
+            <a href="giris.html" id="buton">İletişim</a>
+            <a href="giris.html" id="gbuton">Compiler</a>
+
+        </div>
+    </div>
+    
+    <div class="banner">
+
+        <div class="banner-elements">
+            <pre>Web Tabanlı 
+Uygulama Geliştirme</pre>
+            <p>
+                Ahmet Berat Koçyiğit
+            </p>
+        </div>
+        
+            
+        <img class="htmlimage" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/800px-HTML5_logo_and_wordmark.svg.png">
+        <img class="cssimage" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/800px-CSS3_logo_and_wordmark.svg.png">
+        
+    </div>
+
+    <div class="grid-container">
+        <h2 class="grid-title">Konular</h2>
+        
+          <div class="category-grid">
+            <div class="category-card" onclick="ToOps()">
+              <a href="#"><i class="fa-solid fa-plus"></i><span>Operatörler</span></a>
+            </div>
+            <div class="category-card" onclick="ToIfElse()">
+              <a href="#"><i class="fas fa-question-circle"></i><span>İf-Else Karar Yapıları</span></a>
+            </div>
+            <div class="category-card"  onclick="ToFonk()">
+              <a href="#"><i class="fas fa-code"></i><span>Fonksiyonlar</span></a>
+            </div>
+            <div class="category-card">
+              <a href="#"><i class="fas fa-list-ul"></i><span>Diziler</span></a>
+            </div>
+            <div class="category-card">
+              <a href="#"><i class="fas fa-object-group"></i><span>Nesneler</span></a>
+            </div>
+            <div class="category-card">
+              <a href="#"><i class="fas fa-font"></i><span>Stringler</span></a>
+            </div>
+          </div>
+        
+      </div>
+
+    <div class="container">
+      
+      <h1>Merhaba dünya örneği</h1>
+      <p>bu sayede merahab dünya yazabilirsin</p>
+      <div class="code-container">
+        <div class="code-header">
+            <span class="language">JavaScript</span>
+            <button class="run-button">Çalıştır</button>
+        </div>
+        <pre><code class="language-javascript javascript-code" contenteditable="true">console.log("Merhaba Dünya!");</code></pre>
+    </div>
+
+    <div class="output-container">
+        <h2>Çıktı:</h2>
+        <pre class="output"></pre>
+    </div>
+    
+    <code-compiler>
+      console.log("sa")
+    </code-compiler>
+
+    </div>
+    
+
+    <script src="assests/js/compiler.js"></script>
+    <script src="assests/js/buttons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+</body>
+</html>
