@@ -1,0 +1,142 @@
+---
+layout: null
+permalink: /yemeksepeti/iletisim
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YemekSepeti | İletişim</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+<body>
+  
+
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+
+      <img src="img/logo.png" style="height: 45px; margin-left: 20px;" onclick="ToMain()">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">YemekSepeti</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Anasayfa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="yemekler.html">Yemekler</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="market.html">Market</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="iletisim.html">İletişim</a>
+            </li>
+          </ul>
+          <form class="d-flex mt-3" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+            <button class="btn btn-success" type="submit">Ara</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="indirme-alani-duzeltilmis">
+    <div class="sol-icerik-duzeltilmis">
+        <img src="img/logo-beyaz.png" alt="Logo">
+        <h1>İletişim</h1>
+    </div>
+    <img src="img/app.webp" alt="Telefon Görseli" class="telefon-gorseli-duzeltilmis">
+</div>
+
+
+
+<section class="iletisim p-5 text-center">
+    <div class="container">
+        <h2 class="mb-4 font-weight-bold">İletişim</h2>
+        <hr class="ayrac">
+        <p class="lead">Bizimle iletişime geçmek için aşağıdaki bilgileri kullanabilir veya formu doldurabilirsiniz.</p>
+        <div class="iletisim-bilgileri">
+            <div>
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Örnek Merkez, Sivas, Türkiye</p>
+            </div>
+            <div>
+                <i class="fas fa-phone"></i>
+                <p>+90 555 555 55 55</p>
+            </div>
+            <div>
+                <i class="fas fa-envelope"></i>
+                <p>ahmetberatkocyigit@gmail.com</p>
+            </div>
+        </div>
+        <div class="iletisim-form">
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Adınız Soyadınız">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="E-posta Adresiniz">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" rows="5" placeholder="Mesajınız"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success btn-iletisim">Gönder</button>
+            </form>
+        </div>
+    </div>
+  </section>
+
+  <section class="p-5 text-center yemekler">
+  </section>  
+
+<footer style="background-color: #222; color: #ccc; padding: 40px;">
+  <div style="display: flex; justify-content: space-around; max-width: 1200px; margin: 0 auto;">
+      <div>
+          <h3>Hakkımızda</h3>
+          <p>Sitemiz yemek ve market ürünleri sipariş etmek içindir.</p>
+          <p>İletişim: <a href="mailto:ahmetberatkocyigit@gmail.com" style="color: #ccc;">ahmetberatkocyigit@gmail.com</a></p>
+      </div>
+      <div>
+          <h3>Bağlantılar</h3>
+          <ul>
+              <li><a href="index.html" style="color: #ccc;">Anasayfa</a></li>
+              <li><a href="yemekler.html" style="color: #ccc;">Yemekler</a></li>
+              <li><a href="market.html" style="color: #ccc;">Market</a></li>
+              <li><a href="iletisim.html" style="color: #ccc;">İletişim</a></li>
+          </ul>
+      </div>
+      <div>
+          <h3>Takip Edin</h3>
+          <div style="margin-top: 10px;">
+              <a href="https://www.facebook.com/ahmet.kocygt" style="color: #ccc; margin-right: 10px;">Facebook</a>
+              <a href="https://www.twitter.com/ahmet.kocygt" style="color: #ccc; margin-right: 10px;">Twitter</a>
+              <a href="https://www.instagram.com/ahmet.kocygt" style="color: #ccc;">Instagram</a>
+          </div>
+      </div>
+  </div>
+  <hr style="border-top: 1px solid #555; margin-top: 30px; margin-bottom: 10px;">
+  <p style="text-align: center;">&copy; 2025 YemekSepeti - Tüm Hakları Saklıdır</p>
+</footer>
+
+<script src="js/script.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
