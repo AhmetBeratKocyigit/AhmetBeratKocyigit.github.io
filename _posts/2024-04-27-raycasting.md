@@ -48,7 +48,7 @@ The player navigates through the 3D environment using keyboard controls. Raycast
 
 ## Code 
 
-    ```python
+```python
     import pygame
     import sys
     import math
@@ -216,7 +216,7 @@ The player navigates through the 3D environment using keyboard controls. Raycast
     if __name__ == "__main__":
         main()
 
-    ```
+```
 ## Contributing
 
 Contributions are welcome! If you want to contribute to this project, feel free to open a pull request on GitHub. Fixes, improvements, and suggestions are always appreciated.
