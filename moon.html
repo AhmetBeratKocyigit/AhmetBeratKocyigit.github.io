@@ -1,0 +1,238 @@
+---
+layout: null
+permalink: /mooncast/
+---
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AyCasting — 3D Live Moon</title>
+<style>
+  :root{--bg:#071226;--panel:#0b1b2b;--accent:#8ab4ff}
+  html,body{height:100%;margin:0;font-family:Arial,sans-serif;}
+  body{background:linear-gradient(180deg,#000814 0%, #071226 60%);color:#e6f0ff;overflow:hidden;}
+  #app{display:grid;grid-template-columns:1fr 360px;height:100vh;}
+  #canvas-container{position:relative;}
+  canvas{display:block;width:100%;height:100%;}
+  .panel{padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 6px 24px rgba(2,6,23,0.6);height:100%;backdrop-filter:blur(6px);}
+  h1{margin:0 0 8px;font-size:20px;}
+  .meta{font-size:13px;color:#a9c2ff;margin-bottom:12px;}
+  .row{display:flex;justify-content:space-between;gap:8px;margin:8px 0;}
+  .card{background:var(--panel);padding:10px;border-radius:8px;}
+  .big{font-size:18px;font-weight:700;}
+  .small{font-size:13px;color:#cfe1ff;}
+  button{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent);padding:8px 10px;border-radius:8px;cursor:pointer;}
+  a.link{color:var(--accent);font-size:13px;}
+  footer{position:absolute;left:12px;bottom:12px;font-size:12px;color:#9fb6ff;}
+  .legend{font-size:13px;margin-top:10px;}
+  .warning{font-size:12px;color:#ffd6a5;margin-top:8px;}
+</style>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.153.0/build/three.module.js"
+  }
+}
+</script>
+
+</head>
+<body>
+<div id="app">
+  <div id="canvas-container"></div>
+
+  <aside class="panel">
+    <h1>AyCasting — 3D Live Moon</h1>
+    <div class="meta">Interactive Moon viewer that uses astronomy data to set phase, rise/set and lighting.</div>
+
+    <div class="card">
+      <div class="row"><div class="small">Location</div><div id="loc" class="big">Detecting...</div></div>
+      <div class="row"><div class="small">Moon phase</div><div id="phase" class="big">—</div></div>
+      <div class="row"><div class="small">Illumination</div><div id="illum" class="big">—</div></div>
+      <div class="row"><div class="small">Moonrise</div><div id="rise" class="big">—</div></div>
+      <div class="row"><div class="small">Moonset</div><div id="set" class="big">—</div></div>
+    </div>
+
+    <div style="height:12px"></div>
+
+    <div class="card">
+      <div class="small">Controls</div>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button id="autoRotate">Toggle auto-rotate</button>
+        <button id="refresh">Refresh Data</button>
+      </div>
+      <div class="legend">Use mouse/touch to rotate/zoom. Lighting is set by astronomy phase.</div>
+    </div>
+
+    <div style="height:12px"></div>
+
+    <div class="card">
+      <div class="small">About</div>
+      <div class="small" style="margin-top:8px">
+        This demo uses <a class="link" href="https://open-meteo.com/">Open-Meteo Astronomy API</a> for moon phases and times,
+        <a class="link" href="https://threejs.org/">Three.js</a> for 3D rendering.
+      </div>
+    </div>
+
+    <div class="warning">Allow location access for local times and accurate phase info. If blocked, Istanbul fallback is used.</div>
+    <footer>Built with ❤️ • AyCasting</footer>
+  </aside>
+</div>
+
+<script type="module">
+  import * as THREE from 'three';
+  import { OrbitControls } from 'https://unpkg.com/three@0.153.0/examples/jsm/controls/OrbitControls.js';
+
+  const container = document.getElementById('canvas-container');
+  const locEl = document.getElementById('loc');
+  const phaseEl = document.getElementById('phase');
+  const illumEl = document.getElementById('illum');
+  const riseEl = document.getElementById('rise');
+  const setEl = document.getElementById('set');
+  const btnRotate = document.getElementById('autoRotate');
+  const btnRefresh = document.getElementById('refresh');
+
+  const FALLBACK = {latitude:41.015137, longitude:28.979530, name:'Istanbul, Turkey'}; // fallback
+
+  let lat = FALLBACK.latitude, lon = FALLBACK.longitude;
+
+  // Scene & Camera
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(50, container.clientWidth/container.clientHeight, 0.1, 1000);
+  camera.position.set(0,0,3.6);
+
+  // Renderer
+  const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  container.appendChild(renderer.domElement);
+
+  // Stars
+  const starsGeo = new THREE.BufferGeometry();
+  const starCount = 800;
+  const positions = new Float32Array(starCount*3);
+  for(let i=0;i<starCount;i++){
+    positions[i*3] = (Math.random()-0.5)*200;
+    positions[i*3+1] = (Math.random()-0.5)*200;
+    positions[i*3+2] = (Math.random()-0.5)*200;
+  }
+  starsGeo.setAttribute('position', new THREE.BufferAttribute(positions,3));
+  const starsMat = new THREE.PointsMaterial({size:0.6, transparent:true, opacity:0.9});
+  scene.add(new THREE.Points(starsGeo, starsMat));
+
+  // Lights
+  const ambient = new THREE.AmbientLight(0x222233); scene.add(ambient);
+  const sunLight = new THREE.DirectionalLight(0xffffff,1.2); sunLight.position.set(5,0,5); scene.add(sunLight);
+  const fill = new THREE.DirectionalLight(0x666699,0.08); fill.position.set(-5,0,-5); scene.add(fill);
+
+  // Moon
+  const loader = new THREE.TextureLoader();
+  const moonGeo = new THREE.SphereGeometry(1,64,64);
+  const moonMat = new THREE.MeshStandardMaterial({map: loader.load('./texture.jpg')});
+  const moon = new THREE.Mesh(moonGeo, moonMat);
+  scene.add(moon);
+
+  // Controls
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.minDistance = 1.6;
+  controls.maxDistance = 8;
+
+  window.addEventListener('resize', ()=>{
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    camera.aspect = container.clientWidth/container.clientHeight;
+    camera.updateProjectionMatrix();
+  });
+
+  let autoRotate = true;
+  btnRotate.onclick = ()=> autoRotate = !autoRotate;
+  btnRefresh.onclick = ()=> fetchAstronomy(lat, lon);
+
+  async function init(){
+    try{
+      const pos = await getLocation();
+      lat = pos.latitude; lon = pos.longitude;
+      locEl.textContent = pos.name || (lat.toFixed(3)+', '+lon.toFixed(3));
+    }catch{
+      lat = FALLBACK.latitude; lon = FALLBACK.longitude;
+      locEl.textContent = FALLBACK.name + ' (fallback)';
+    }
+    await fetchAstronomy(lat, lon);
+    animate();
+  }
+
+  function getLocation(){
+    return new Promise((resolve,reject)=>{
+      if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(p=>{
+          resolve({latitude:p.coords.latitude, longitude:p.coords.longitude, name:'Your location'});
+        }, err=> reject(err), {timeout:8000});
+      } else reject(new Error('No geolocation'));
+    });
+  }
+
+  async function fetchAstronomy(lat, lon){
+    try{
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=moon_phase,moonrise,moonset,moon_illumination&timezone=Europe/Istanbul`;
+      const res = await fetch(url);
+      if(!res.ok) throw new Error(`API responded with status ${res.status}`);
+      const data = await res.json();
+      if(!data.daily) throw new Error('daily data missing');
+
+      const phaseVal = data.daily.moon_phase[0];
+      const illumVal = data.daily.moon_illumination ? data.daily.moon_illumination[0] : Math.round((1 - Math.abs(0.5 - phaseVal)/0.5)*100);
+      const moonrise = data.daily.moonrise[0] || '—';
+      const moonset = data.daily.moonset[0] || '—';
+
+      updateUI(phaseVal, illumVal, moonrise, moonset);
+      setLightingFromPhase(phaseVal);
+
+    }catch(e){
+      console.error('Astronomy fetch failed', e);
+      phaseEl.textContent = 'Error';
+      illumEl.textContent = '—';
+      riseEl.textContent = '—';
+      setEl.textContent = '—';
+    }
+  }
+
+  function updateUI(phaseVal, illumVal, moonrise, moonset){
+    const phaseName = phaseNameFromValue(phaseVal);
+    phaseEl.textContent = phaseName + ` (${phaseVal.toFixed(2)})`;
+    illumEl.textContent = Math.round(illumVal) + '%';
+    riseEl.textContent = moonrise;
+    setEl.textContent = moonset;
+  }
+
+  function phaseNameFromValue(v){
+    if(v<0.03) return 'New Moon';
+    if(v<0.25) return 'Waxing Crescent';
+    if(v<0.27) return 'First Quarter';
+    if(v<0.48) return 'Waxing Gibbous';
+    if(v<0.52) return 'Full Moon';
+    if(v<0.73) return 'Waning Gibbous';
+    if(v<0.77) return 'Last Quarter';
+    return 'Waning Crescent';
+  }
+
+  function setLightingFromPhase(phaseVal){
+    const angle = (phaseVal-0.5)*Math.PI*2;
+    const radius = 5;
+    sunLight.position.set(Math.cos(angle)*radius,0.6,Math.sin(angle)*radius);
+    fill.position.set(-Math.cos(angle)*0.6*radius,-0.3,-Math.sin(angle)*0.6*radius);
+    moon.rotation.y = angle*0.2;
+  }
+
+  function animate(){
+    requestAnimationFrame(animate);
+    if(autoRotate) moon.rotation.y += 0.0018;
+    controls.update();
+    renderer.render(scene, camera);
+  }
+
+  init();
+
+</script>
+</body>
+</html>
