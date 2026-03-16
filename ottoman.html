@@ -1,0 +1,206 @@
+---
+layout: null
+permalink: /ottoman/
+---
+
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osmanlı Hanedan Atlası</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { background: #020617; margin: 0; overflow: hidden; font-family: 'Inter', sans-serif; }
+        .cinzel { font-family: 'Cinzel', serif; }
+
+        /* Bağlantı Çizgileri */
+        .link { fill: none; stroke: #334155; stroke-width: 2px; stroke-opacity: 0.4; transition: all 0.4s; }
+        .link-spouse { stroke: #f472b6; stroke-dasharray: 5,5; stroke-opacity: 0.8; stroke-width: 2.5px; }
+
+        /* Düğüm Tasarımı */
+        .node circle { stroke-width: 3px; fill: #1e293b; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
+        .type-padişah circle { stroke: #fbbf24; }
+        .type-eş circle { stroke: #f472b6; }
+        .type-şehzade circle { stroke: #60a5fa; }
+        .type-hanım_sultan circle { stroke: #a78bfa; }
+        .type-halife circle { stroke: #34d399; }
+
+        .node:hover circle { r: 65; stroke-width: 6px; filter: brightness(1.2) drop-shadow(0 0 15px rgba(255,255,255,0.2)); }
+        .node text { fill: #f1f5f9; font-size: 12px; font-weight: 600; pointer-events: none; text-shadow: 0 2px 5px rgba(0,0,0,1); }
+
+        /* Panel (Masaüstü) */
+        #side-panel {
+            background: rgba(7, 10, 25, 0.98);
+            backdrop-filter: blur(30px);
+            border-left: 1px solid rgba(234, 179, 8, 0.3);
+            box-shadow: -25px 0 60px rgba(0,0,0,0.9);
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 450px;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* MOBİL DÜZENLEMESİ */
+        @media (max-width: 768px) {
+            #side-panel {
+                width: 95%; height: 85%; top: auto; bottom: 0; left: 50%; right: auto;
+                border-left: none; border-top: 1px solid rgba(234, 179, 8, 0.4);
+                border-radius: 30px 30px 0 0; transform: translate(-50%, 100%); 
+            }
+            #side-panel.mobile-open { transform: translate(-50%, 0) !important; }
+        }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-thumb { background: #fbbf24; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="absolute top-6 left-6 md:top-10 md:left-10 z-10 pointer-events-none">
+        <h1 class="cinzel text-3xl md:text-5xl text-yellow-500 tracking-[0.2em] drop-shadow-2xl">OSMANLI</h1>
+        <p class="text-slate-500 text-[10px] md:text-[11px] mt-2 uppercase tracking-[0.4em] font-light">Dijital Hanedan Atlası</p>
+    </div>
+
+    <div id="graph-container" class="w-screen h-screen"></div>
+
+    <div id="side-panel" class="translate-x-full p-8 md:p-12 overflow-y-auto">
+        <button onclick="togglePanel(false)" class="group flex items-center text-yellow-500 hover:text-white mb-8 text-xs font-bold tracking-widest transition-colors">
+            <span class="mr-2 transform group-hover:-translate-x-1 transition-transform">←</span> GERİ DÖN
+        </button>
+        
+        <div id="panel-content">
+            <div class="relative mb-8 group">
+                <div class="absolute -inset-1 bg-gradient-to-b from-yellow-500/20 to-transparent rounded-2xl blur opacity-25"></div>
+                <img id="p-img" class="relative w-full aspect-[3/4] object-cover rounded-2xl border border-white/10 shadow-2xl">
+                <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent rounded-b-2xl">
+                    <span id="p-type-label" class="px-3 py-1 bg-yellow-600 text-black text-[10px] font-black rounded-full uppercase tracking-tighter"></span>
+                    <h2 id="p-name" class="cinzel text-2xl md:text-3xl text-white mt-3 leading-tight"></h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-center">
+                    <p class="text-[9px] text-yellow-500/60 uppercase font-bold mb-1 tracking-widest">Ünvan</p>
+                    <p id="p-role" class="text-white text-xs font-bold uppercase"></p>
+                </div>
+                <div class="bg-white/5 p-4 rounded-xl border border-white/5 text-center">
+                    <p class="text-[9px] text-yellow-500/60 uppercase font-bold mb-1 tracking-widest">Dönem</p>
+                    <p id="p-reign" class="text-white text-xs font-mono font-bold"></p>
+                </div>
+            </div>
+
+            <div class="bg-white/5 p-6 rounded-2xl border border-white/5 mb-8">
+                <p class="text-[10px] text-yellow-500 uppercase font-bold mb-3 tracking-widest border-b border-yellow-500/20 pb-1">Biyografi</p>
+                <p id="p-bio" class="text-slate-300 text-sm leading-[1.7] italic font-light"></p>
+            </div>
+
+            <a id="p-wiki" target="_blank" class="flex items-center justify-center w-full py-4 bg-yellow-600 hover:bg-yellow-500 text-black font-black rounded-xl transition-all uppercase text-[10px] tracking-[0.2em]">
+                WIKIPEDIA ARŞİVİ
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const width = window.innerWidth, height = window.innerHeight;
+        const svg = d3.select("#graph-container").append("svg").attr("width", width).attr("height", height);
+        const g = svg.append("g"), defs = svg.append("defs");
+
+        const zoom = d3.zoom().scaleExtent([0.02, 3]).on("zoom", (e) => g.attr("transform", e.transform));
+        svg.call(zoom);
+
+        fetch('data.json').then(res => res.json()).then(rawData => {
+            const data = rawData.map(d => ({ ...d, parentId: (d.id === "osman_gazi") ? "" : (d.parents?.[0] || d.spouse || "") }));
+            const root = d3.stratify().id(d => d.id).parentId(d => d.parentId)(data);
+            d3.tree().nodeSize([500, 600])(root);
+
+            root.descendants().forEach(d => {
+                if (d.data.type === "eş") {
+                    const kocasi = d.parent;
+                    if (kocasi) {
+                        d.y = kocasi.y;
+                        const butunEsler = kocasi.children.filter(c => c.data.type === "eş");
+                        d.x = kocasi.x + (180 * (butunEsler.indexOf(d) + 1));
+                    }
+                }
+            });
+
+            g.selectAll(".link").data(root.links()).enter().append("path")
+                .attr("class", d => d.target.data.type === "eş" ? "link link-spouse" : "link")
+                .attr("d", d => d.target.data.type === "eş" ? `M${d.source.x},${d.source.y} L${d.target.x},${d.target.y}` : d3.linkVertical().x(d => d.x).y(d => d.y)(d));
+
+            const nodes = g.selectAll(".node").data(root.descendants()).enter().append("g")
+                .attr("class", d => `node type-${d.data.type.replace(/\s+/g, '_')}`)
+                .attr("transform", d => `translate(${d.x},${d.y})`)
+                .on("click", (e, d) => showDetails(d.data));
+
+            nodes.append("circle").attr("r", 55);
+            nodes.append("text").attr("dy", 95).attr("text-anchor", "middle").text(d => d.data.name);
+
+            nodes.each(function(d) {
+                const nodeEl = d3.select(this);
+                const pId = `pattern-${d.data.id.replace(/[^a-zA-Z]/g, '-')}`;
+
+                const applyPattern = (url) => {
+                    defs.append("pattern").attr("id", pId).attr("width", 1).attr("height", 1)
+                        .attr("patternContentUnits", "objectBoundingBox")
+                        .append("image").attr("xlink:href", url).attr("width", 1).attr("height", 1).attr("preserveAspectRatio", "xMidYMid slice");
+                    nodeEl.select("circle").style("fill", `url(#${pId})`);
+                };
+
+                if (d.data.image_url) {
+                    applyPattern(d.data.image_url);
+                } else if (d.data.wiki) {
+                    const slug = decodeURIComponent(new URL(d.data.wiki).pathname.split('/').pop());
+                    fetch(`https://tr.wikipedia.org/w/api.php?action=query&titles=${slug}&prop=pageimages&format=json&pithumbsize=300&origin=*`)
+                    .then(r => r.json()).then(api => {
+                        const page = Object.values(api.query.pages)[0];
+                        if (page?.thumbnail) applyPattern(page.thumbnail.source);
+                    });
+                }
+            });
+
+            svg.call(zoom.transform, d3.zoomIdentity.translate(width/2, 100).scale(0.3));
+        });
+
+        async function showDetails(d) {
+            document.getElementById("p-name").innerText = d.name;
+            document.getElementById("p-type-label").innerText = d.type;
+            document.getElementById("p-role").innerText = d.type || "Hânedan Üyesi";
+            document.getElementById("p-reign").innerText = d.reign || "---";
+            document.getElementById("p-bio").innerText = "Tarihî kayıtlar getiriliyor...";
+
+            if (d.image_url) {
+                document.getElementById("p-img").src = d.image_url;
+            }
+
+            const slug = decodeURIComponent(new URL(d.wiki).pathname.split('/').pop());
+            const res = await fetch(`https://tr.wikipedia.org/w/api.php?action=query&titles=${slug}&prop=pageimages|extracts&exintro&explaintext&exchars=800&format=json&pithumbsize=1000&origin=*`);
+            const apiData = await res.json();
+            const page = Object.values(apiData.query.pages)[0];
+
+            if (page) {
+                if (!d.image_url) document.getElementById("p-img").src = page.thumbnail?.source || "https://via.placeholder.com/600x800/1e293b/fbbf24?text=Resim+Yok";
+                document.getElementById("p-bio").innerText = page.extract || "Bu kişi hakkında detaylı biyografi kaydı bulunamadı.";
+                document.getElementById("p-wiki").href = d.wiki;
+            }
+            togglePanel(true);
+        }
+
+        function togglePanel(open) {
+            const panel = document.getElementById("side-panel");
+            if (window.innerWidth <= 768) {
+                panel.classList.toggle("mobile-open", open);
+                panel.classList.remove("translate-x-full");
+            } else {
+                panel.classList.toggle("translate-x-full", !open);
+                panel.classList.remove("mobile-open");
+            }
+        }
+    </script>
+</body>
+</html>
