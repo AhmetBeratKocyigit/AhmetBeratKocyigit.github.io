@@ -856,23 +856,33 @@ permalink: /dynasty/
             document.getElementById("p-type-label").innerText = d.type;
             document.getElementById("p-role").innerText = d.type || "Hânedan Üyesi";
             document.getElementById("p-reign").innerText = d.reign || "---";
-            document.getElementById("p-bio").innerText = "Tarihî kayıtlar getiriliyor...";
-
-            try {
-                const slug = decodeURIComponent(new URL(d.wiki).pathname.split('/').pop());
-                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(`https://tr.wikipedia.org/w/api.php?action=query&titles=${slug}&prop=pageimages|extracts&exintro&explaintext&exchars=800&format=json&pithumbsize=1000&redirects=1`)}`;
-                const res = await fetch(proxyUrl);
-                const proxyData = await res.json();
-                const apiData = JSON.parse(proxyData.contents);
+            document.getElementById("p-bio").innerText = "Tarihî kayıtlar Wikipedia'dan çekiliyor...";
+        
+            // Wikipedia başlığını (slug) alıyoruz
+            const slug = decodeURIComponent(new URL(d.wiki).pathname.split('/').pop());
+            
+            // JSONP (callback) kullanarak CORS engelini baypas ediyoruz
+            const script = document.createElement('script');
+            const callbackName = 'wikiCallback_' + Math.floor(Math.random() * 100000);
+            
+            window[callbackName] = function(apiData) {
                 const page = Object.values(apiData.query.pages)[0];
                 if (page) {
-                    document.getElementById("p-img").src = d.image_url || page.thumbnail?.source || "";
-                    document.getElementById("p-bio").innerText = page.extract || "Bilgi bulunamadı.";
+                    // Görseli güncelle
+                    document.getElementById("p-img").src = d.image_url || page.thumbnail?.source || "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+                    // Biyografiyi yaz
+                    document.getElementById("p-bio").innerText = page.extract || "Bu kişi hakkında detaylı biyografi kaydı bulunamadı.";
                     document.getElementById("p-wiki").href = d.wiki;
                 }
-            } catch (err) {
-                document.getElementById("p-bio").innerText = "Veri şu an çekilemiyor.";
-            }
+                // Temizlik: Script etiketini ve callback'i sil
+                delete window[callbackName];
+                script.remove();
+            };
+        
+            // Wikipedia'nın JSONP URL'si (en sonuna &callback= ekliyoruz)
+            script.src = `https://tr.wikipedia.org/w/api.php?action=query&titles=${slug}&prop=pageimages|extracts&exintro&explaintext&exchars=800&format=json&pithumbsize=1000&redirects=1&origin=*&callback=${callbackName}`;
+            document.body.appendChild(script);
+        
             togglePanel(true);
         }
 
