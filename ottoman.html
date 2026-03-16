@@ -113,7 +113,7 @@ permalink: /ottoman/
         const zoom = d3.zoom().scaleExtent([0.02, 3]).on("zoom", (e) => g.attr("transform", e.transform));
         svg.call(zoom);
 
-        fetch('data.json').then(res => res.json()).then(rawData => {
+        fetch('./data.json').then(res => res.json()).then(rawData => {
             const data = rawData.map(d => ({ ...d, parentId: (d.id === "osman_gazi") ? "" : (d.parents?.[0] || d.spouse || "") }));
             const root = d3.stratify().id(d => d.id).parentId(d => d.parentId)(data);
             d3.tree().nodeSize([500, 600])(root);
