@@ -26,6 +26,23 @@ permalink: /dynasty/
         .node text { fill: #f1f5f9; font-size: 12px; font-weight: 600; pointer-events: none; text-shadow: 0 2px 5px rgba(0,0,0,1); }
         #side-panel { background: rgba(7, 10, 25, 0.98); backdrop-filter: blur(30px); border-left: 1px solid rgba(234, 179, 8, 0.3); box-shadow: -25px 0 60px rgba(0,0,0,0.9); z-index: 100; position: fixed; top: 0; right: 0; height: 100%; width: 450px; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
         @media (max-width: 768px) { #side-panel { width: 95%; height: 85%; top: auto; bottom: 0; left: 50%; right: auto; border-radius: 30px 30px 0 0; transform: translate(-50%, 100%); } #side-panel.mobile-open { transform: translate(-50%, 0) !important; } }
+        #side-panel::-webkit-scrollbar {
+            width: 6px; 
+        }
+        #side-panel::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.5); 
+        }
+        
+        #side-panel::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #ca8a04, #fbbf24, #ca8a04); 
+            border-radius: 10px; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        #side-panel::-webkit-scrollbar-thumb:hover {
+            background: #fcd34d; 
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
+        }
     </style>
 </head>
 <body>
