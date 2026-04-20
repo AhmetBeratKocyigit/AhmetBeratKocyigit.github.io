@@ -1,4 +1,607 @@
----
-layout: home
-# Index page
----
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmet Berat Koçyiğit | Software Developer</title>
+    <meta name="description" content="Portfolio of Ahmet Berat Koçyiğit - Software Developer specializing in Autonomous Systems, AI, and Digital Humanities. Explore my innovative projects in UAV technology and software development.">
+    
+    <!-- SEO & Social Media -->
+    <meta name="keywords" content="Ahmet Berat Koçyiğit, Software Developer, Autonomous Systems, AI, UAV, Digital Humanities, TEKNOFEST, Web Development, Python, C++, Robotics">
+    <meta name="author" content="Ahmet Berat Koçyiğit">
+    <meta property="og:title" content="Ahmet Berat Koçyiğit | Software Developer Portfolio">
+    <meta property="og:description" content="Innovative software solutions for autonomous systems and AI. Discover the intersection of technology and humanities.">
+    <meta property="og:image" content="https://ahmetberatkocyigit.com/assets/og-image.jpg">
+    <meta property="og:url" content="https://ahmetberatkocyigit.com">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Favicon (Template - Replace with actual path if exists) -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <!-- Icons (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assests/css/style.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">ABK<span>.</span></div>
+            <div class="loader-bar-container">
+                <div class="loader-bar"></div>
+            </div>
+            <p class="loader-text" data-i18n="loader_text">Initializing Workspace...</p>
+        </div>
+    </div>
+    <!-- Top Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Background Effects -->
+    <div class="bg-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-glow"></div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <a href="#hero" class="logo">
+                <span class="logo-text">ABK</span><span class="logo-dot">.</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link" data-i18n="nav_home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
+                <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a></li>
+                <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Projects</a></li>
+                <li><a href="#competitions" class="nav-link" data-i18n="nav_achievements">Achievements</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="lang-switch">
+                    <button id="lang-toggle" class="lang-btn">
+                        <span class="lang-code">EN</span>
+                        <i class="fas fa-globe"></i>
+                    </button>
+                </div>
+                <a href="#contact" class="btn btn-outline btn-sm hidden-mobile" data-i18n="nav_contact">Contact</a>
+                <button class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-header">
+            <span class="logo">ABK<span>.</span></span>
+            <button class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-links">
+            <li><a href="#hero" data-i18n="nav_home">Home</a></li>
+            <li><a href="#about" data-i18n="nav_about">About</a></li>
+            <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+            <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+            <li><a href="#competitions" data-i18n="nav_achievements">Achievements</a></li>
+            <li><a href="#contact" class="mobile-contact-btn" data-i18n="nav_contact_btn">Get in Touch</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+        <div class="container hero-container">
+            <div class="hero-content reveal-init">
+                <div class="badge-wrapper">
+                    <span class="hero-badge cursor-pointer" id="badge-typing-container">
+                        <span class="live-dot"></span>
+                        <span id="typed-text">Software Developer</span>
+                        <span class="typing-cursor">|</span>
+                    </span>
+                </div>
+                <h1 class="hero-title" data-i18n="hero_title">
+                    I Am <br>
+                    <span class="gradient-text gradient-animated">Ahmet Berat Koçyiğit</span>
+                </h1>
+                <p class="hero-desc" data-i18n="hero_desc">
+                    Hi, I am <strong>Ahmet</strong>. I develop autonomous systems, AI-powered UAV technologies, and modern web applications. I'm passionate about exploring the intersection of Digital Humanities and cutting-edge software solutions.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary btn-lg group magnetic-btn" data-i18n="hero_projects">
+                        My Projects 
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="AhmetBeratKocyigit.pdf" download="AhmetBeratKocyigit_CV.pdf" class="btn btn-secondary btn-lg magnetic-btn" data-i18n="hero_cv">
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                    <div class="social-links">
+                        <a href="https://github.com/AhmetBeratKocyigit" target="_blank" class="social-icon" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:dev@ahmetberatkocyigit.com" class="social-icon" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-visual reveal-init delay-200">
+                <div class="visual-container">
+                    <div class="code-window">
+                        <div class="window-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="window-title">main.py</span>
+                        </div>
+                        <div class="window-body">
+                            <pre><code><span class="keyword">class</span> <span class="entity">Developer</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(self):
+        self.name = <span class="string">"Ahmet Berat"</span>
+        self.focus = [<span class="string">"Autonomous Systems"</span>, <span class="string">"AI"</span>]
+        self.is_coding = <span class="boolean">True</span>
+
+    <span class="keyword">def</span> <span class="function">innovate</span>(self):
+        <span class="keyword">while</span> self.is_coding:
+            <span class="keyword">return</span> <span class="string">"Building the future..."</span></code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="floating-elements">
+                        <div class="float-item icon-python"><i class="fas fa-terminal"></i></div>
+                        <div class="float-item icon-drone"><i class="fas fa-plane"></i></div>
+                        <div class="float-item icon-brain"><i class="fas fa-brain"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span class="scroll-text" data-i18n="scroll_down">Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-glass">
+        <div class="container">
+            <div class="section-header reveal-init">
+                <h2 class="section-title" data-i18n="about_title">About Me</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-card glass-card reveal-init">
+                    <div class="card-icon-wrapper gradient-bg">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 data-i18n="about_profile_title">Profile Summary</h3>
+                    <p data-i18n="about_profile_desc">I am a senior high school student specializing in software development, autonomous systems, and AI-based UAV technologies. By transforming theoretical knowledge into practical applications in prestigious competitions like TEKNOFEST, I create innovative technological solutions for real-world problems. My interest in <strong>Digital Humanities</strong> drives me to bridge the gap between cultural heritage and modern computational methods.</p>
+                </div>
+                
+                <div class="about-card glass-card reveal-init delay-200">
+                    <div class="card-icon-wrapper gradient-bg-alt">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 data-i18n="about_edu_title">Education</h3>
+                    <div class="timeline-small">
+                        <div class="timeline-item-sm">
+                            <div class="timeline-point"></div>
+                            <span class="year" data-i18n="about_edu_year1">2022 - Present</span>
+                            <h4 data-i18n="about_edu_school1">Sivas IT Vocational High School</h4>
+                            <p class="subtitle" data-i18n="about_edu_program1">Anatolian Technical Program (ATP) - Software Development</p>
+                            <span class="gpa" data-i18n="about_edu_gpa1">GPA: 92.00</span>
+                        </div>
+                        <div class="timeline-item-sm mt-4">
+                            <div class="timeline-point"></div>
+                            <span class="year" data-i18n="about_edu_year2">2018 - 2022</span>
+                            <h4 data-i18n="about_edu_school2">Doga College</h4>
+                            <p class="subtitle" data-i18n="about_edu_program2">Secondary Education</p>
+                            <span class="gpa" data-i18n="about_edu_gpa2">GPA: 95.99</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Projects Section (NEW) -->
+    <section id="live-projects" class="section">
+        <div class="container">
+            <div class="section-header reveal-init">
+                <h2 class="section-title" data-i18n="live_projects_title">Live Projects</h2>
+                <p class="section-subtitle" data-i18n="live_projects_subtitle">Ready-to-use professional applications and web platforms.</p>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="live-projects-grid">
+                <!-- Project 1: Gök Medrese -->
+                <div class="live-project-card glass-card reveal-init">
+                    <div class="live-project-image">
+                        <div class="project-overlay">
+                            <div class="project-badges">
+                                <span class="badge">HTML</span>
+                                <span class="badge">JavaScript</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Kashgari_map.jpg" alt="Ancient Map">
+                    </div>
+                    <div class="live-project-content">
+                        <h3>İnteractive 11th-century Turkic World Map</h3>
+                        <p data-i18n="project_medrese_desc">A Digital Humanities project that maps the world's first Turkic dictionary, utilizing coordinate-based data visualization to transform classical literature into an immersive digital experience.</p>
+                        <div class="live-project-links">
+                            <a href="https://ahmetberatkocyigit.com/map/" class="btn btn-sm btn-primary">Live View <i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/AhmetBeratKocyigit/Interactive-Digital-Atlas" class="social-icon sm"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Digital Dynasty Atlas -->
+                <div class="live-project-card glass-card reveal-init delay-100">
+                    <div class="live-project-image">
+                        <div class="project-overlay">
+                            <div class="project-badges">
+                                <span class="badge">Digital Humanities</span>
+                                <span class="badge">Interactive</span>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Foundation_of_the_Ottoman_Empire.jpg/1920px-Foundation_of_the_Ottoman_Empire.jpg" alt="Digital Dynasty Atlas">
+                    </div>
+                    <div class="live-project-content">
+                        <h3 data-i18n="project_atlas_title">Digital Dynasty Atlas</h3>
+                        <p data-i18n="project_atlas_desc">An interactive visual database exploring historical dynasties and their territorial evolutions through time.</p>
+                        <div class="live-project-links">
+                            <a href="https://ahmetberatkocyigit.com/dynasty/" class="btn btn-sm btn-primary">Live View <i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="social-icon sm"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-header reveal-init">
+                <h2 class="section-title" data-i18n="skills_title">Tech Stack</h2>
+                <p class="section-subtitle" data-i18n="skills_subtitle">My expertise and tools I use daily.</p>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="skills-showcase">
+                <div class="skill-category glass-card reveal-init">
+                    <div class="category-header">
+                        <div class="category-icon-box"><i class="fas fa-code"></i></div>
+                        <h3 data-i18n="skills_cat_languages">Languages</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"/> Python</span>
+                        <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++"/> C++</span>
+                        <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#"/> C#</span>
+                        <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"/> Java</span>
+                        <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"/> JavaScript</span>
+                        <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TS"/> TypeScript</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category glass-card reveal-init delay-100">
+                    <div class="category-header">
+                        <div class="category-icon-box"><i class="fas fa-layer-group"></i></div>
+                        <h3 data-i18n="skills_cat_frameworks">Frameworks</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="Tensorflow"/> TensorFlow</span>
+                        <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask"/> Flask</span>
+                        <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django"/> Django</span>
+                        <span class="tag"><i data-lucide="layout-template"></i> PyQt</span>
+                        <span class="tag"><i class="fas fa-plane"></i> MAVLink</span>
+                        <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"/> React</span>
+                    </div>
+                </div>
+            
+
+                <div class="skill-category glass-card reveal-init delay-300">
+                    <div class="category-header">
+                        <div class="category-icon-box"><i class="fas fa-wrench"></i></div>
+                        <h3 data-i18n="skills_cat_tools">Tools</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"/> Git</span>
+                        <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"/> Figma</span>
+                        <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="PS"/> Photoshop</span>
+                        <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code"/> VS Code</span>
+                        <span class="tag"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" alt="Android"/> Android Studio</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Projects Section -->
+    <section id="projects" class="section bg-glass">
+        <div class="container">
+            <div class="section-header reveal-init">
+                <h2 class="section-title" data-i18n="projects_title">Open Source Projects</h2>
+                <p class="section-subtitle" data-i18n="projects_subtitle">Latest repositories fetched automatically from GitHub.</p>
+                <div class="title-line"></div>
+            </div>
+            
+            <!-- Filter Options -->
+            <div class="project-filters reveal-init">
+                <button class="filter-btn active" data-filter="all" data-i18n="filter_all">All</button>
+                <button class="filter-btn" data-filter="Python">Python</button>
+                <button class="filter-btn" data-filter="HTML" data-i18n="filter_web">Web</button>
+                <button class="filter-btn" data-filter="TypeScript">TypeScript</button>
+            </div>
+
+            <div class="projects-grid" id="github-projects">
+                <!-- Loader -->
+                <div class="loader-container">
+                    <div class="spinner"></div>
+                    <p data-i18n="github_loading">Fetching latest projects from GitHub...</p>
+                </div>
+            </div>
+            
+            <div class="center-btn mt-5 reveal-init">
+                <a href="https://github.com/AhmetBeratKocyigit" target="_blank" class="btn btn-outline" data-i18n="view_github">
+                    <i class="fab fa-github"></i> Visit My GitHub Profile
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitions Section -->
+    <section id="competitions" class="section">
+        <div class="container">
+            <div class="section-header reveal-init">
+                <h2 class="section-title" data-i18n="achievements_title">Competitions & Achievements</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="modern-timeline">
+                <div class="timeline-line"></div>
+                
+                <div class="timeline-row reveal-init">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="content-header">
+                            <h3 data-i18n="event_tekno_iha">TEKNOFEST UAV Competition</h3>
+                            <span class="badge" data-i18n="role_free">Free Mission</span>
+                        </div>
+                        <p data-i18n="desc_tekno_iha">Developed innovative software architecture solutions for autonomous flight algorithms and mission planning. The system can make autonomous decisions in challenging environmental conditions.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-row reveal-init">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="content-header">
+                            <h3 data-i18n="event_ai_air">AI in Aviation</h3>
+                            <span class="badge">TEKNOFEST</span>
+                        </div>
+                        <p data-i18n="desc_ai_air">Integration of aerial image processing, object detection, tracking, and deep learning-based decision support mechanisms for UAVs was achieved.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-row reveal-init">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="content-header">
+                            <h3 data-i18n="event_sar">Autonomous Search & Rescue UAV</h3>
+                            <span class="badge" data-i18n="role_idea">Idea Competition</span>
+                        </div>
+                        <p data-i18n="desc_sar">Presented a sustainable autonomous system design that can detect people with image processing in disaster areas and share coordinates.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-row reveal-init">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="content-header">
+                            <h3 data-i18n="event_meb">MEB Robot Competition</h3>
+                            <span class="badge" data-i18n="role_autocar">Autonomous Vehicle</span>
+                        </div>
+                        <p data-i18n="desc_meb">Autonomous land vehicle software and sensor fusion with lane tracking, obstacle detection, and traffic sign recognition systems were performed.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-row reveal-init">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="content-header">
+                            <h3 data-i18n="event_tekno_iha_24">TEKNOFEST UAV Competition</h3>
+                            <span class="badge" data-i18n="badge_hs_cat">High School Category</span>
+                        </div>
+                        <p data-i18n="desc_tekno_iha_24">Autonomous flight dynamics, ground station control modules, and telemetry data analysis software development.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-row reveal-init">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content glass-card">
+                        <div class="content-header">
+                            <h3 data-i18n="event_tekno_rocket">TEKNOFEST Rocket Competition</h3>
+                            <span class="badge" data-i18n="badge_avionics">Avionics & Communication</span>
+                        </div>
+                        <p data-i18n="desc_tekno_rocket">Collection of high-altitude payload sensor data, filtering processes, and continuous data transmission to the ground station over RF.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates -->
+    <section class="section bg-glass">
+        <div class="container">
+            <div class="section-header reveal-init text-center">
+                <h2 class="section-title" data-i18n="cert_title">Education & Certificates</h2>
+            </div>
+            
+            <div class="certificate-grid reveal-init delay-100">
+                <div class="certificate-badge">
+                    <div class="cert-inner">
+                        <i class="fas fa-award"></i>
+                        <h4 data-i18n="cert1">Defense Industry Training Program</h4>
+                        <p class="cert-issuer" data-i18n="cert_type_training">Training Program</p>
+                    </div>
+                </div>
+                <!-- ... others skipped for brevity in this call but will be handled or kept as is ... -->
+                 <div class="certificate-badge">
+                    <div class="cert-inner">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4 data-i18n="cert2">Cyber Security</h4>
+                        <p class="cert-issuer" data-i18n="cert_type_certificate">Achievement Certificate</p>
+                    </div>
+                </div>
+                <div class="certificate-badge">
+                    <div class="cert-inner">
+                        <i class="fas fa-briefcase"></i>
+                        <h4 data-i18n="cert3">Project Management Fundamentals</h4>
+                        <p class="cert-issuer" data-i18n="cert_type_training">Training Program</p>
+                    </div>
+                </div>
+                <div class="certificate-badge">
+                    <div class="cert-inner">
+                        <i class="fas fa-comment"></i>
+                        <h4 data-i18n="cert4">Effective Communication Strategies</h4>
+                        <p class="cert-issuer" data-i18n="cert_type_training">Training Program</p>
+                    </div>
+                </div>
+                <div class="certificate-badge">
+                    <div class="cert-inner">
+                        <i class="fas fa-camera"></i>
+                        <h4 data-i18n="cert5">Digital Content Creation</h4>
+                        <p class="cert-issuer" data-i18n="cert_type_training">Training Program</p>
+                    </div>
+                </div>
+                <div class="certificate-badge">
+                    <div class="cert-inner">
+                        <i class="fas fa-desktop"></i>
+                        <h4 data-i18n="cert6">Operating Systems</h4>
+                        <p class="cert-issuer" data-i18n="cert_type_training">Training Program</p>
+                    </div>
+                </div>
+                <div class="certificate-badge">
+                    <div class="cert-inner">
+                        <i class="fas fa-plane-departure"></i>
+                        <h4 data-i18n="cert7">UAV Pilot Certificate</h4>
+                        <p class="cert-issuer" data-i18n="cert_type_certificate">Achievement Certificate</p>
+                    </div>
+                </div>
+                <div class="certificate-badge">
+                    <div class="cert-inner">
+                        <i class="fas fa-database"></i>
+                        <h4 data-i18n="cert8">Python & TensorFlow</h4>
+                        <p class="cert-issuer" data-i18n="cert_type_training">Training Program</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="footer">
+        <div class="footer-glow"></div>
+        <div class="container">
+            <div class="contact-card glass-card reveal-init">
+                <div class="contact-info">
+                    <h2 data-i18n="footer_cta">Let's Build Something <br><span class="gradient-text">Exceptional</span></h2>
+                    <p data-i18n="footer_desc">I'm always open to discussing autonomous systems, artificial intelligence, or innovative software ideas. Let's talk about how my skills can bring value to your project.</p>
+                    
+                    <div class="languages mt-4">
+                        <span class="badge border-badge">🇹🇷 Turkish (Native)</span>
+                        <span class="badge border-badge">🇬🇧 English (B2)</span>
+                    </div>
+                </div>
+                
+                <div class="contact-links">
+                    <button class="contact-link-card copy-email-btn" data-email="dev@ahmetberatkocyigit.com">
+                        <div class="icon-box"><i class="fas fa-copy"></i></div>
+                        <div class="link-details" style="text-align: left;">
+                            <span class="label" data-i18n="footer_copy_email">Copy Email</span>
+                            <span class="value">dev@ahmetberatkocyigit.com</span>
+                        </div>
+                    </button>
+                    
+                    <a href="tel:+905369460091" class="contact-link-card magnetic-wrapper">
+                        <div class="icon-box"><i class="fas fa-phone"></i></div>
+                        <div class="link-details">
+                            <span class="label" data-i18n="footer_call">Call Me</span>
+                            <span class="value">+90 536 946 00 91</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-main-grid reveal-init">
+                <div class="footer-brand">
+                    <div class="logo">ABK<span class="logo-dot">.</span></div>
+                    <p data-i18n="footer_brand_desc">Architecting the future through autonomous intelligence and digital craftsmanship.</p>
+                    <div class="footer-socials">
+                        <a href="https://github.com/AhmetBeratKocyigit" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/AhmetBeratKocyigit" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://twitter.com/ahmetberatkoc" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4 data-i18n="footer_quick_links">Quick Links</h4>
+                    <ul>
+                        <li><a href="#hero" data-i18n="nav_home">Home</a></li>
+                        <li><a href="#about" data-i18n="nav_about">About</a></li>
+                        <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+                        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4 data-i18n="footer_contact_title">Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> dev@ahmetberatkocyigit.com</li>
+                        <li><i class="fas fa-phone"></i> +90 536 946 00 91</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Sivas, Turkey</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Ahmet Berat Koçyiğit. <span data-i18n="footer_rights">Crafted with Digital Precision.</span></p>
+                <div class="back-to-top">
+                    <a href="#hero" aria-label="Back to Top"><i class="fas fa-chevron-up"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i> <span data-i18n="toast_copy">Copied to clipboard!</span>
+    </div>
+
+    <script src="assests/js/script.js"></script>
+</body>
+</html>
