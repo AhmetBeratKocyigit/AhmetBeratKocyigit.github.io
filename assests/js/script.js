@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sections.forEach(sec => {
             const sectionTop = sec.offsetTop;
             const sectionHeight = sec.clientHeight;
-            if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+            if (window.scrollY >= (sectionTop - sectionHeight / 3)) {
                 current = sec.getAttribute('id');
             }
         });
