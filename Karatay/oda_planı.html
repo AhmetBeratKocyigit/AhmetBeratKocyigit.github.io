@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Karatay Medresesi | Kat Planı</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #38bdf8;
+            --primary-glow: rgba(56, 189, 248, 0.4);
+            --accent: #f59e0b;
+            --bg-dark: #000000;
+            --glass: rgba(15, 23, 42, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --vh: 1vh;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body,
+        html {
+            height: 100%;
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .desktop-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-dark);
+            z-index: -1;
+        }
+
+        .app-container {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            background-color: var(--bg-dark);
+            position: relative;
+            overflow: hidden;
+            border-radius: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        }
+
+
+
+        @media (min-width: 768px) {
+            .app-container {
+                max-width: 380px;
+                height: 85vh;
+                max-height: 820px;
+                border-radius: 45px;
+                border: 14px solid #050505;
+                box-shadow:
+                    0 0 2px 1px rgba(255, 255, 255, 0.1),
+                    0 40px 80px rgba(0, 0, 0, 0.8),
+                    inset 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+
+            .app-container::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 140px;
+                height: 30px;
+                background: #050505;
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+                z-index: 1000;
+            }
+        }
+
+        .top-nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 40px 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 50;
+            background: linear-gradient(to bottom, rgba(12, 12, 12, 0.95) 0%, transparent 100%);
+        }
+
+        .nav-left,
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .top-nav {
+                padding-top: 35px;
+            }
+        }
+
+        .back-btn {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 50%;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .back-btn:hover {
+            background: var(--primary);
+            color: #020617;
+            border-color: var(--primary);
+        }
+
+        .page-title {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .ar-toggle {
+            padding: 8px 16px;
+            background: rgba(245, 158, 11, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--accent);
+            border-radius: 100px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .ar-toggle:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        .ar-toggle i {
+            font-size: 1rem;
+        }
+
+        .map-section {
+            position: relative;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        .map-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 108%;
+            margin-top: 8vh;
+            flex-shrink: 0;
+            line-height: 0;
+            animation: mapFade 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes mapFade {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .map-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            pointer-events: none;
+            filter: invert(1) contrast(2) grayscale(1);
+            mix-blend-mode: lighten;
+            opacity: 0.9;
+        }
+        .bottom-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 1.05rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            z-index: 5;
+            animation: pulse-op 2.5s infinite;
+        }
+
+        .bottom-hint i {
+            color: var(--primary);
+            margin-left: 6px;
+        }
+
+        @keyframes pulse-op {
+            0% {
+                opacity: 0.5;
+                transform: translateY(0);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateY(-5px);
+            }
+
+            100% {
+                opacity: 0.5;
+                transform: translateY(0);
+            }
+        }
+
+        .marker {
+            position: absolute;
+            width: 38px;
+            height: 38px;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(5px);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .marker:hover,
+        .marker.active {
+            background: var(--primary);
+            color: #020617;
+            transform: translate(-50%, -50%) scale(1.15);
+            box-shadow: 0 10px 25px var(--primary-glow);
+        }
+
+        .marker::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid var(--primary);
+            opacity: 0;
+            z-index: -1;
+            animation: ripple 2.5s infinite;
+        }
+
+        .marker.active::after {
+            border-color: #fff;
+            animation: rippleActive 1.5s infinite;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        @keyframes rippleActive {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.6);
+                opacity: 0;
+            }
+        }
+
+        .info-panel {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--glass);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 32px 32px 0 0;
+            padding: 30px 24px 40px;
+            transform: translateY(110%);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 100;
+            max-height: 85%;
+            overflow-y: auto;
+            box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .info-panel.active {
+            transform: translateY(0);
+        }
+
+        .info-panel::before {
+            content: "";
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        .info-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 24px;
+        }
+
+        .info-header .text-col {
+            flex: 1;
+        }
+
+        .info-header p.overline {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .info-header h2 {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: #fff;
+        }
+
+        .info-header h2 strong {
+            font-weight: 600;
+        }
+
+        .close-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            color: #94a3b8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-btn:hover {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border-color: rgba(239, 68, 68, 0.4);
+            transform: rotate(90deg);
+        }
+
+        .info-body img {
+            width: 100%;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+
+        .info-body p.desc {
+            font-size: 1.05rem;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 24px;
+        }
+
+        .audio-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 16px 20px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .audio-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .audio-icon {
+            width: 46px;
+            height: 46px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(56, 189, 248, 0.15);
+            color: var(--primary);
+            border-radius: 14px;
+            font-size: 1.2rem;
+        }
+
+        .audio-text h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .audio-text p {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .audio-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #fff;
+            border: none;
+            color: #0f172a;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .audio-btn.playing {
+            background: var(--primary);
+            color: #fff;
+            animation: audio-pulse 1.5s infinite;
+        }
+
+        @keyframes audio-pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.6);
+            }
+
+            70% {
+                box-shadow: 0 0 0 12px rgba(56, 189, 248, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
+            }
+        }
+
+        @media (hover: hover) {
+            .audio-btn:hover {
+                transform: scale(1.1);
+                background: var(--primary);
+                color: #fff;
+            }
+        }
+
+        .audio-btn:active {
+            transform: scale(0.9);
+        }
+
+        .info-panel::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .info-panel::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .info-panel::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="desktop-bg"></div>
+
+    <div class="app-container">
+        <div class="top-nav">
+            <div class="nav-left">
+                <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i></a>
+                <div class="page-title">Kat Planı</div>
+            </div>
+            <div class="nav-right">
+                <a href="arKaratay/index.html" class="ar-toggle">
+                    <i class="fas fa-vr-cardboard"></i> AR MODU
+                </a>
+            </div>
+        </div>
+
+        <div class="map-section">
+            <div class="map-wrapper">
+                <img src="assets/images/kat-planı.png" alt="Plan" id="planImg" style="padding: 30px;">
+                <!-- Markerlar -->
+                <div class="marker" style="top: 88%; left: 24%;" data-id="1">1</div>
+                <div class="marker" style="top: 22%; left: 72%;" data-id="2">2</div>
+                <div class="marker" style="top: 38%; left: 21%;" data-id="3">3</div>
+                <div class="marker" style="top: 75%; left: 72%;" data-id="4">4</div>
+            </div>
+
+            <div class="bottom-hint">
+                Detaylar için numaralara dokunun <i class="fas fa-hand-pointer"></i>
+            </div>
+        </div>
+        <div class="info-panel" id="infoPanel">
+            <div class="info-header">
+                <div class="text-col">
+                    <p class="overline">Konya Karatay Medresesi</p>
+                    <h2 id="roomTitle"><strong>Oda</strong> Adı</h2>
+                </div>
+                <button class="close-btn" id="closePanel"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="info-body">
+                <img src="" alt="Oda" id="roomImg">
+                <p class="desc" id="roomDesc">Açıklama...</p>
+
+                <div class="audio-card">
+                    <div class="audio-info">
+                        <div class="audio-icon"><i class="fas fa-headphones-alt"></i></div>
+                        <div class="audio-text">
+                            <h4>Otomatik Rehber</h4>
+                            <p>Sesli anlatımı dinle</p>
+                        </div>
+                    </div>
+                    <button class="audio-btn" id="audioBtn"><i class="fas fa-play"
+                            style="margin-left: 2px;"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audioPlayer"></audio>
+
+    <script>
+        function updateVh() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        updateVh();
+        window.addEventListener('resize', updateVh);
+
+        const roomData = {
+            1: { titleHead: "Giriş", titleStrong: "Taç Kapısı", desc: "Taç Kapı, Anadolu Selçuklu mimarisinin karakteristik özelliklerini yansıtan anıtsal bir giriş örneğidir. Yapısal olarak gri ve beyaz mermerlerin nöbetleşe kullanıldığı münavebeli dizim tekniğiyle oluşturulmuş olup, estetik ve mühendislik dengesinin bir kanıtıdır.", img: "assets/images/oda1.jpg", audio: "assets/audio/oda1.mp3" },
+            2: { titleHead: "Ana", titleStrong: "Dershane", desc: "Eğitim faaliyetlerinin yürütüldüğü geniş oda. Mihrap ve öğrenci nişleri, devrin ilim sevgisini gözler önüne seriyor.", img: "assets/images/oda1.jpg", audio: "assets/audio/oda1.mp3" },
+            3: { titleHead: "Öğrenci", titleStrong: "Odası", desc: "Öğrencilerin konaklaması için kullanılan, küçük ve sade odalar. Odaklanma ve sükunetin adresi.", img: "assets/images/oda1.jpg", audio: "assets/audio/oda1.mp3" },
+            4: { titleHead: "Müderris", titleStrong: "Odası", desc: "Medresenin hocasının özel çalışma ve dinlenme alanı. Bilimin ve hilafın incelendiği sessiz ortam.", img: "assets/images/oda1.jpg", audio: "assets/audio/oda1.mp3" }
+        };
+
+        const markers = document.querySelectorAll('.marker');
+        const infoPanel = document.getElementById('infoPanel');
+        const audioPlayer = document.getElementById('audioPlayer');
+        const audioBtn = document.getElementById('audioBtn');
+        let isPlaying = false;
+
+        markers.forEach(marker => {
+            marker.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = marker.dataset.id;
+                markers.forEach(m => m.classList.remove('active'));
+                marker.classList.add('active');
+
+                const data = roomData[id];
+                document.getElementById('roomTitle').innerHTML = `${data.titleHead} <strong>${data.titleStrong}</strong>`;
+                document.getElementById('roomDesc').textContent = data.desc;
+                document.getElementById('roomImg').src = data.img;
+                audioPlayer.src = data.audio;
+
+                infoPanel.classList.add('active');
+                resetAudio();
+            });
+        });
+
+        function resetAudio() {
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+            audioBtn.innerHTML = '<i class="fas fa-play" style="margin-left: 2px;"></i>';
+            audioBtn.classList.remove('playing');
+            isPlaying = false;
+        }
+
+        audioBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!isPlaying) {
+                audioPlayer.play();
+                audioBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                audioBtn.classList.add('playing');
+                isPlaying = true;
+            } else {
+                audioPlayer.pause();
+                audioBtn.innerHTML = '<i class="fas fa-play" style="margin-left: 2px;"></i>';
+                audioBtn.classList.remove('playing');
+                isPlaying = false;
+            }
+        });
+
+        infoPanel.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        document.getElementById('closePanel').addEventListener('click', () => {
+            infoPanel.classList.remove('active');
+            markers.forEach(m => m.classList.remove('active'));
+            resetAudio();
+        });
+
+        window.addEventListener('click', (e) => {
+            if (infoPanel.classList.contains('active') && !infoPanel.contains(e.target) && !e.target.classList.contains('marker')) {
+                infoPanel.classList.remove('active');
+                markers.forEach(m => m.classList.remove('active'));
+                resetAudio();
+            }
+        });
+    </script>
+</body>
+
+</html>
