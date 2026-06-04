@@ -55,53 +55,75 @@
     let totalChunksExpected = 0;
     let isFinished = false;
     let html5QrCode;
+    let lastScannedText = ""; // Aynı kodun üst üste okunmasını engellemek için filtre
 
     startBtn.addEventListener('click', () => {
         startBtn.style.display = 'none';
+        statusText.style.color = "#e2e8f0";
         statusText.innerText = "⚡ Tarayıcı motoru ayağa kalkıyor, HD kalitesi isteniyor...";
         
-        // Kütüphanenin ham motorunu doğrudan 'reader' div'ine bağlıyoruz
         html5QrCode = new Html5Qrcode("reader");
         
-        // MÜHENDİSLİK AYARI: Tarayıcıya zorla 1080p çözünürlük ve sürekli odaklama dayatıyoruz
-        const config = {
-            fps: 25,
-            videoConstraints: {
-                facingMode: "environment",
-                width: { ideal: 1920 },
-                height: { ideal: 1080 },
-                focusMode: "continuous" // Sürekli otomatik odaklama aktifi
-            }
+        // DOĞRU MÜHENDİSLİK AYARI: Çözünürlük kısıtlamaları doğrudan ilk parametreye verilir
+        const cameraConstraints = {
+            facingMode: "environment",
+            width: { ideal: 1920 },
+            height: { ideal: 1080 }
         };
 
-        // Kamerayı başlat
-        html5QrCode.start({ facingMode: "environment" }, config, onScanSuccess)
+        const config = {
+            fps: 20, // Mobil cihazların aşırı ısınmaması ve donmaması için 20 FPS idealdir
+            qrbox: { width: 260, height: 260 } // Ekranda hizalamayı kolaylaştıran kılavuz kutu açar
+        };
+
+        // Kamerayı kurallara uygun başlatıyoruz
+        html5QrCode.start(cameraConstraints, config, onScanSuccess, onScanFailure)
         .then(() => {
-            statusText.innerText = "🎯 1080p HD Kamera Aktif! QR kodları sırayla gösterin.";
+            statusText.style.color = "#38bdf8";
+            statusText.innerText = "🎯 1080p HD Kamera Aktif! QR kodları ekrandaki kutuya ortalayarak gösterin.";
         })
         .catch(err => {
+            statusText.style.color = "#f43f5e";
             statusText.innerText = "❌ Kamera açma hatası: " + err;
             startBtn.style.display = 'block';
         });
     });
 
-    // Kamera bir QR yakaladığında bu fonksiyon kayıpsız tetiklenecek
+    // Her boş karede tetiklenen hata fonksiyonu (Konsolu kirletmemesi için boş bırakıldı)
+    function onScanFailure(error) {}
+
+    // Kamera bir QR yakaladığında tetiklenen fonksiyon
     async function onScanSuccess(decodedText) {
         if (isFinished) return;
         
         let rawStr = String(decodedText).trim();
-        // Bizim özel protokolümüz değilse es geç
-        if (!rawStr.includes('/') || !rawStr.includes('|')) return;
+        
+        // Hızlı ardışık okumalarda aynı kareyi tekrar tekrar işlemeyi engelle
+        if (rawStr === lastScannedText) return;
+        lastScannedText = rawStr;
+
+        // Protokol kontrolü (Hatalı bir QR gösterilirse kullanıcıyı uyarır)
+        if (!rawStr.includes('/') || !rawStr.includes('|')) {
+            statusText.style.color = "#f59e0b";
+            statusText.innerText = "⚠️ QR Kod algılandı fakat kitap formatına (X/Y|veri) uygun değil!";
+            return;
+        }
 
         try {
             const parts = rawStr.split('|');
+            if (parts.length < 2) return;
+
             const meta = parts[0].split('/');
             const payload = parts[1];
 
             const currentIndex = parseInt(meta[0]);
             const totalChunks = parseInt(meta[1]);
 
-            if (isNaN(currentIndex) || isNaN(totalChunks)) return;
+            if (isNaN(currentIndex) || isNaN(totalChunks)) {
+                statusText.style.color = "#f43f5e";
+                statusText.innerText = "❌ Geçersiz index yapısı!";
+                return;
+            }
 
             // İlk parça okunduğunda arayüzü dinamik inşa et
             if (totalChunksExpected === 0) {
@@ -115,28 +137,39 @@
             // Yeni bir parça geldiyse hafızaya yaz ve arayüzü güncelle
             if (!receivedChunks.hasOwnProperty(currentIndex)) {
                 receivedChunks[currentIndex] = payload;
-                document.getElementById(`chip-${currentIndex}`).classList.add('active');
+                
+                const currentChip = document.getElementById(`chip-${currentIndex}`);
+                if (currentChip) currentChip.classList.add('active');
                 
                 const currentCount = Object.keys(receivedChunks).length;
                 const percentage = (currentCount / totalChunksExpected) * 100;
+                
                 progressFill.style.width = `${percentage}%`;
-                statusText.innerText = `🧩 İlerleme: ${currentCount} / ${totalChunksExpected} parça toplandı.`;
+                statusText.style.color = "#10b981";
+                statusText.innerText = `🧩 İlerleme: ${currentCount} / ${totalChunksExpected} parça toplandı. (${currentIndex + 1}. parça alındı)`;
 
                 // Tüm parçalar bittiğinde birleştir ve decompress et
                 if (currentCount === totalChunksExpected) {
                     isFinished = true;
+                    statusText.style.color = "#38bdf8";
                     statusText.innerText = "⚡ Tüm parçalar hafızaya alındı! Kitap birleştiriliyor...";
                     
                     // Kamerayı güvenle kapatıyoruz
                     html5QrCode.stop().then(() => {
                         document.getElementById('reader').style.display = 'none';
-                    });
+                    }).catch(err => console.error("Kamera durdurulamadı:", err));
 
                     await decompressAndShow();
                 }
+            } else {
+                // Zaten taranmış parça uyarısı
+                statusText.style.color = "#94a3b8";
+                statusText.innerText = `ℹ️ ${currentIndex + 1}. parça zaten hafızada. Lütfen sonraki parçayı gösterin.`;
             }
         } catch (err) {
             console.error("Parça işleme hatası: ", err);
+            statusText.style.color = "#f43f5e";
+            statusText.innerText = "❌ Veri ayrıştırılırken teknik bir hata oluştu!";
         }
     }
 
@@ -155,7 +188,7 @@
                 bytes[i] = binaryString.charCodeAt(i);
             }
 
-            // Tarayıcının gömülü native decompress motoru (Sıfır kütüphane bağımlılığı)
+            // Tarayıcının gömülü native decompress motoru
             const stream = new Response(bytes).body.pipeThrough(new DecompressionStream("deflate-raw"));
             const tamMetin = await new Response(stream).text();
 
@@ -165,7 +198,7 @@
             storyOutput.innerText = tamMetin;
         } catch (e) {
             statusText.style.color = "#f43f5e";
-            statusText.innerText = "❌ Sıkıştırma açılırken teknik bir hata oluştu!";
+            statusText.innerText = "❌ Sıkıştırma açılırken teknik bir hata oluştu! QR kodlarındaki binary veri hatalı oluşturulmuş olabilir.";
             console.error(e);
         }
     }
