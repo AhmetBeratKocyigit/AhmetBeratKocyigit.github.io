@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Küçük Prens Matris Okuyucu</title>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f0f4f8;
+            color: #102a43;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .app-container {
+            max-width: 700px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        h1 { text-align: center; margin-top: 0; color: #102a43; font-size: 24px; }
+        .info { text-align: center; color: #627d98; font-size: 14px; margin-bottom: 20px; }
+        
+        #camera-view { width: 100%; max-width: 450px; margin: 0 auto; border: 3px solid #bcccdc; border-radius: 12px; overflow: hidden; }
+        
+        /* İlerleme Paneli */
+        .progress-container {
+            margin: 20px 0;
+            background: #f0f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #d9e2ec;
+        }
+        .progress-bar-bg {
+            background: #cbd5e1;
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        .progress-bar-fill {
+            background: #10b981;
+            width: 0%;
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        .collected-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .chip {
+            padding: 3px 8px;
+            background: #e2e8f0;
+            font-size: 11px;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #475569;
+        }
+        .chip.success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        #story-output {
+            margin-top: 25px;
+            padding: 25px;
+            background: #fffdf5;
+            border: 1px solid #f0eae0;
+            border-left: 5px solid #d97706;
+            border-radius: 8px;
+            line-height: 1.7;
+            font-size: 16px;
+            white-space: pre-wrap;
+            display: none;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <h1>📚 Küçük Prens Matris Veri Okuyucu</h1>
+    <div class="info">A4 kağıdındaki QR kodları sırayla kameraya yaklaştırın. Algılananlar yeşile dönecektir.</div>
+    
+    <div id="camera-view"></div>
+    
+    <div class="progress-container">
+        <div id="status-title" style="font-weight: bold;">Kamera taranıyor...</div>
+        <div class="progress-bar-bg">
+            <div id="progress-fill" class="progress-bar-fill"></div>
+        </div>
+        <div class="collected-chips" id="chips-wrapper"></div>
+    </div>
+    
+    <div id="story-output"></div>
+</div>
+
+<script>
+    const statusTitle = document.getElementById('status-title');
+    const progressFill = document.getElementById('progress-fill');
+    const chipsWrapper = document.getElementById('chips-wrapper');
+    const storyOutput = document.getElementById('story-output');
+
+    // Okunan parçaları tutacağımız akıllı hafıza nesnesi
+    let receivedChunks = {}; 
+    let totalChunksExpected = 0;
+    let isFinished = false;
+
+    // Kamera kütüphanesini kur
+    const qrScanner = new Html5QrcodeScanner("camera-view", { fps: 25, qrbox: 280 });
+
+    // Her QR başarıyla okunduğunda tetiklenen fonksiyon
+    async function onScanSuccess(decodedText) {
+        if (isFinished) return;
+
+        try {
+            // Protokolü ayrıştır: "index/total|payload"
+            if (!decodedText.includes('/') || !decodedText.includes('|')) return;
+
+            const parts = decodedText.split('|');
+            const meta = parts[0].split('/');
+            const payload = parts[1];
+
+            const currentIndex = parseInt(meta[0]);
+            const totalChunks = parseInt(meta[1]);
+
+            // İlk kez okuma yapıldığında toplam kaç parça geleceğini kaydet ve arayüzü çiz
+            if (totalChunksExpected === 0) {
+                totalChunksExpected = totalChunks;
+                initChips(totalChunks);
+            }
+
+            // Eğer bu parça daha önce okunmadıysa hafızaya al
+            if (!receivedChunks.hasOwnProperty(currentIndex)) {
+                receivedChunks[currentIndex] = payload;
+                
+                // Arayüzü güncelle (Chip rengini yeşil yap)
+                document.getElementById(`chip-${currentIndex}`).classList.add('success');
+                
+                // İlerleme çubuğunu güncelle
+                const currentCount = Object.keys(receivedChunks).length;
+                const percentage = (currentCount / totalChunksExpected) * 100;
+                progressFill.style.width = `${percentage}%`;
+                statusTitle.innerText = `⏳ Parçalar Toplanıyor: ${currentCount} / ${totalChunksExpected}`;
+
+                // Hepsi bitti mi kontrol et?
+                if (currentCount === totalChunksExpected) {
+                    isFinished = true;
+                    qrScanner.clear(); // Kamerayı kapat
+                    statusTitle.innerText = "⚡ Tüm parçalar alındı! Kitap birleştiriliyor...";
+                    await birlestirVeDecompressEt();
+                }
+            }
+        } catch (e) {
+            console.error("Ayrıştırma hatası: ", e);
+        }
+    }
+
+    // Ekrandaki küçük kutucukları (chipleri) başlatan fonksiyon
+    function initChips(total) {
+        chipsWrapper.innerHTML = '';
+        for (let i = 0; i < total; i++) {
+            const chip = document.createElement('div');
+            chip.className = 'chip';
+            chip.id = `chip-${i}`;
+            chip.innerText = `P-${i+1}`;
+            chipsWrapper.appendChild(chip);
+        }
+    }
+
+    // Tüm parçalar bittiğinde birleştirip ekrana basan ana motor
+    async function birlestirVeDecompressEt() {
+        try {
+            // 1. Parçaları sıralı şekilde uç uca ekleyerek tam Base64 string'i oluştur
+            let fullBase64 = "";
+            for (let i = 0; i < totalChunksExpected; i++) {
+                fullBase64 += receivedChunks[i];
+            }
+
+            // 2. Base64 metnini tarayıcı belleğinde binary array'e çevir (.bin haline geri getir)
+            const binaryString = atob(fullBase64);
+            const bytes = new Uint8Array(binaryString.length);
+            for (let i = 0; i < binaryString.length; i++) {
+                bytes[i] = binaryString.charCodeAt(i);
+            }
+
+            // 3. Tarayıcının yerleşik native DecompressionStream API'si ile Raw Deflate'i çöz
+            const stream = new Response(bytes).body.pipeThrough(new DecompressionStream("deflate-raw"));
+            const kucukPrensTamMetin = await new Response(stream).text();
+
+            // 4. Ekrana bas
+            statusTitle.innerHTML = "🎉 BAŞARILI! 26 KB'lık Küçük Prens .bin yapısından kayıpsız şekilde ayağa kaldırıldı.";
+            storyOutput.style.display = "block";
+            storyOutput.innerText = kucukPrensTamMetin;
+
+        } catch (error) {
+            statusTitle.innerText = "❌ Birleştirme veya sıkıştırma açma hatası meydana geldi!";
+            console.error(error);
+        }
+    }
+
+    qrScanner.render(onScanSuccess);
+</script>
+</body>
+</html>
