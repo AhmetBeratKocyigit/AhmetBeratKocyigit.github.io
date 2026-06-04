@@ -3,213 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Küçük Prens Matris Okuyucu</title>
+    <title>Küçük Prens Okuyucu (Ultra HD Modu)</title>
     <script src="https://unpkg.com/html5-qrcode"></script>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: #f0f4f8;
-            color: #102a43;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .app-container {
-            max-width: 700px;
-            width: 100%;
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        }
-        h1 { text-align: center; margin-top: 0; color: #102a43; font-size: 24px; }
-        .info { text-align: center; color: #627d98; font-size: 14px; margin-bottom: 20px; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 15px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .app-container { max-width: 550px; width: 100%; background: #1e293b; padding: 25px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        h1 { text-align: center; font-size: 22px; color: #38bdf8; margin: 0 0 15px 0; }
         
-        #camera-view { width: 100%; max-width: 450px; margin: 0 auto; border: 3px solid #bcccdc; border-radius: 12px; overflow: hidden; }
+        /* Kamera Alanı */
+        #reader { width: 100%; max-width: 450px; margin: 0 auto; background: #000; border-radius: 8px; overflow: hidden; border: 2px solid #38bdf8; }
         
-        /* İlerleme Paneli */
-        .progress-container {
-            margin: 20px 0;
-            background: #f0f4f8;
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #d9e2ec;
-        }
-        .progress-bar-bg {
-            background: #cbd5e1;
-            height: 12px;
-            border-radius: 6px;
-            overflow: hidden;
-            margin-top: 8px;
-        }
-        .progress-bar-fill {
-            background: #10b981;
-            width: 0%;
-            height: 100%;
-            transition: width 0.3s ease;
-        }
-        .collected-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            margin-top: 10px;
-        }
-        .chip {
-            padding: 3px 8px;
-            background: #e2e8f0;
-            font-size: 11px;
-            border-radius: 4px;
-            font-weight: bold;
-            color: #475569;
-        }
-        .chip.success {
-            background: #d1fae5;
-            color: #065f46;
-        }
-
-        #story-output {
-            margin-top: 25px;
-            padding: 25px;
-            background: #fffdf5;
-            border: 1px solid #f0eae0;
-            border-left: 5px solid #d97706;
-            border-radius: 8px;
-            line-height: 1.7;
-            font-size: 16px;
-            white-space: pre-wrap;
-            display: none;
-            max-height: 500px;
-            overflow-y: auto;
-        }
+        .panel { background: #334155; padding: 15px; border-radius: 8px; margin: 20px 0; font-size: 14px; }
+        .progress-bar { background: #475569; height: 12px; border-radius: 6px; overflow: hidden; margin-top: 8px; }
+        .progress-fill { background: #10b981; width: 0%; height: 100%; transition: width 0.2s; }
+        
+        .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 12px; }
+        .chip { padding: 3px 6px; background: #475569; font-size: 10px; border-radius: 4px; font-weight: bold; color: #94a3b8; }
+        .chip.active { background: #10b981; color: white; }
+        
+        .btn { display: block; width: 100%; padding: 12px; background: #38bdf8; color: #0f172a; border: none; border-radius: 6px; font-size: 15px; font-weight: bold; cursor: pointer; text-align: center; margin-bottom: 15px; transition: background 0.2s; }
+        .btn:hover { background: #7dd3fc; }
+        
+        #story-output { margin-top: 20px; padding: 25px; background: #fffdf5; color: #1e293b; border-left: 5px solid #0284c7; border-radius: 8px; line-height: 1.7; font-size: 16px; display: none; max-height: 450px; overflow-y: auto; white-space: pre-wrap; }
     </style>
 </head>
 <body>
 
 <div class="app-container">
-    <h1>📚 Küçük Prens Matris Veri Okuyucu</h1>
-    <div class="info">A4 kağıdındaki QR kodları sırayla kameraya yaklaştırın. Algılananlar yeşile dönecektir.</div>
+    <h1>📚 Küçük Prens Okuyucu (HD Kamera Modu)</h1>
     
-    <div id="camera-view"></div>
+    <button id="start-btn" class="btn">📷 Kamerayı Başlat (HD)</button>
+    <div id="reader"></div>
     
-    <div class="progress-container">
-        <div id="status-title" style="font-weight: bold;">Kamera taranıyor...</div>
-        <div class="progress-bar-bg">
-            <div id="progress-fill" class="progress-bar-fill"></div>
-        </div>
-        <div class="collected-chips" id="chips-wrapper"></div>
+    <div class="panel">
+        <div id="status-text" style="font-weight: bold; color: #e2e8f0;">Butona basarak kamerayı HD modda başlatın...</div>
+        <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+        <div class="chips" id="chips-wrapper"></div>
     </div>
     
     <div id="story-output"></div>
 </div>
 
 <script>
-    const statusTitle = document.getElementById('status-title');
+    const statusText = document.getElementById('status-text');
     const progressFill = document.getElementById('progress-fill');
     const chipsWrapper = document.getElementById('chips-wrapper');
     const storyOutput = document.getElementById('story-output');
+    const startBtn = document.getElementById('start-btn');
 
-    // Okunan parçaları tutacağımız akıllı hafıza nesnesi
     let receivedChunks = {}; 
     let totalChunksExpected = 0;
     let isFinished = false;
+    let html5QrCode;
 
-    // Kamera kütüphanesini kur
-    const qrScanner = new Html5QrcodeScanner("camera-view", { fps: 25, qrbox: 280 });
+    startBtn.addEventListener('click', () => {
+        startBtn.style.display = 'none';
+        statusText.innerText = "⚡ Tarayıcı motoru ayağa kalkıyor, HD kalitesi isteniyor...";
+        
+        // Kütüphanenin ham motorunu doğrudan 'reader' div'ine bağlıyoruz
+        html5QrCode = new Html5Qrcode("reader");
+        
+        // MÜHENDİSLİK AYARI: Tarayıcıya zorla 1080p çözünürlük ve sürekli odaklama dayatıyoruz
+        const config = {
+            fps: 25,
+            videoConstraints: {
+                facingMode: "environment",
+                width: { ideal: 1920 },
+                height: { ideal: 1080 },
+                focusMode: "continuous" // Sürekli otomatik odaklama aktifi
+            }
+        };
 
-    // Her QR başarıyla okunduğunda tetiklenen fonksiyon
+        // Kamerayı başlat
+        html5QrCode.start({ facingMode: "environment" }, config, onScanSuccess)
+        .then(() => {
+            statusText.innerText = "🎯 1080p HD Kamera Aktif! QR kodları sırayla gösterin.";
+        })
+        .catch(err => {
+            statusText.innerText = "❌ Kamera açma hatası: " + err;
+            startBtn.style.display = 'block';
+        });
+    });
+
+    // Kamera bir QR yakaladığında bu fonksiyon kayıpsız tetiklenecek
     async function onScanSuccess(decodedText) {
         if (isFinished) return;
+        
+        let rawStr = String(decodedText).trim();
+        // Bizim özel protokolümüz değilse es geç
+        if (!rawStr.includes('/') || !rawStr.includes('|')) return;
 
         try {
-            // Protokolü ayrıştır: "index/total|payload"
-            if (!decodedText.includes('/') || !decodedText.includes('|')) return;
-
-            const parts = decodedText.split('|');
+            const parts = rawStr.split('|');
             const meta = parts[0].split('/');
             const payload = parts[1];
 
             const currentIndex = parseInt(meta[0]);
             const totalChunks = parseInt(meta[1]);
 
-            // İlk kez okuma yapıldığında toplam kaç parça geleceğini kaydet ve arayüzü çiz
+            if (isNaN(currentIndex) || isNaN(totalChunks)) return;
+
+            // İlk parça okunduğunda arayüzü dinamik inşa et
             if (totalChunksExpected === 0) {
                 totalChunksExpected = totalChunks;
-                initChips(totalChunks);
+                chipsWrapper.innerHTML = '';
+                for (let i = 0; i < totalChunks; i++) {
+                    chipsWrapper.innerHTML += `<div class="chip" id="chip-${i}">P-${i+1}</div>`;
+                }
             }
 
-            // Eğer bu parça daha önce okunmadıysa hafızaya al
+            // Yeni bir parça geldiyse hafızaya yaz ve arayüzü güncelle
             if (!receivedChunks.hasOwnProperty(currentIndex)) {
                 receivedChunks[currentIndex] = payload;
+                document.getElementById(`chip-${currentIndex}`).classList.add('active');
                 
-                // Arayüzü güncelle (Chip rengini yeşil yap)
-                document.getElementById(`chip-${currentIndex}`).classList.add('success');
-                
-                // İlerleme çubuğunu güncelle
                 const currentCount = Object.keys(receivedChunks).length;
                 const percentage = (currentCount / totalChunksExpected) * 100;
                 progressFill.style.width = `${percentage}%`;
-                statusTitle.innerText = `⏳ Parçalar Toplanıyor: ${currentCount} / ${totalChunksExpected}`;
+                statusText.innerText = `🧩 İlerleme: ${currentCount} / ${totalChunksExpected} parça toplandı.`;
 
-                // Hepsi bitti mi kontrol et?
+                // Tüm parçalar bittiğinde birleştir ve decompress et
                 if (currentCount === totalChunksExpected) {
                     isFinished = true;
-                    qrScanner.clear(); // Kamerayı kapat
-                    statusTitle.innerText = "⚡ Tüm parçalar alındı! Kitap birleştiriliyor...";
-                    await birlestirVeDecompressEt();
+                    statusText.innerText = "⚡ Tüm parçalar hafızaya alındı! Kitap birleştiriliyor...";
+                    
+                    // Kamerayı güvenle kapatıyoruz
+                    html5QrCode.stop().then(() => {
+                        document.getElementById('reader').style.display = 'none';
+                    });
+
+                    await decompressAndShow();
                 }
             }
-        } catch (e) {
-            console.error("Ayrıştırma hatası: ", e);
+        } catch (err) {
+            console.error("Parça işleme hatası: ", err);
         }
     }
 
-    // Ekrandaki küçük kutucukları (chipleri) başlatan fonksiyon
-    function initChips(total) {
-        chipsWrapper.innerHTML = '';
-        for (let i = 0; i < total; i++) {
-            const chip = document.createElement('div');
-            chip.className = 'chip';
-            chip.id = `chip-${i}`;
-            chip.innerText = `P-${i+1}`;
-            chipsWrapper.appendChild(chip);
-        }
-    }
-
-    // Tüm parçalar bittiğinde birleştirip ekrana basan ana motor
-    async function birlestirVeDecompressEt() {
+    // Binary decompress ve ekrana basma motoru
+    async function decompressAndShow() {
         try {
-            // 1. Parçaları sıralı şekilde uç uca ekleyerek tam Base64 string'i oluştur
             let fullBase64 = "";
             for (let i = 0; i < totalChunksExpected; i++) {
                 fullBase64 += receivedChunks[i];
             }
 
-            // 2. Base64 metnini tarayıcı belleğinde binary array'e çevir (.bin haline geri getir)
+            // Base64 metinden .bin (Binary Array) yapısına geri dönüş
             const binaryString = atob(fullBase64);
             const bytes = new Uint8Array(binaryString.length);
             for (let i = 0; i < binaryString.length; i++) {
                 bytes[i] = binaryString.charCodeAt(i);
             }
 
-            // 3. Tarayıcının yerleşik native DecompressionStream API'si ile Raw Deflate'i çöz
+            // Tarayıcının gömülü native decompress motoru (Sıfır kütüphane bağımlılığı)
             const stream = new Response(bytes).body.pipeThrough(new DecompressionStream("deflate-raw"));
-            const kucukPrensTamMetin = await new Response(stream).text();
+            const tamMetin = await new Response(stream).text();
 
-            // 4. Ekrana bas
-            statusTitle.innerHTML = "🎉 BAŞARILI! 26 KB'lık Küçük Prens .bin yapısından kayıpsız şekilde ayağa kaldırıldı.";
+            statusText.style.color = "#10b981";
+            statusText.innerText = "🎉 MÜKEMMEL! Küçük Prens fiziksel piksellerden başarıyla ayağa kaldırıldı.";
             storyOutput.style.display = "block";
-            storyOutput.innerText = kucukPrensTamMetin;
-
-        } catch (error) {
-            statusTitle.innerText = "❌ Birleştirme veya sıkıştırma açma hatası meydana geldi!";
-            console.error(error);
+            storyOutput.innerText = tamMetin;
+        } catch (e) {
+            statusText.style.color = "#f43f5e";
+            statusText.innerText = "❌ Sıkıştırma açılırken teknik bir hata oluştu!";
+            console.error(e);
         }
     }
-
-    qrScanner.render(onScanSuccess);
 </script>
 </body>
 </html>
