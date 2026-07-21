@@ -1,40 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+  <url>
+    <loc>https://ahmetberatkocyigit.com/</loc>
+    <lastmod>2026-04-20</lastmod>
+    <priority>1.00</priority>
+  </url>
 
-<url>
-  <loc>https://ahmetberatkocyigit.com/</loc>
-  <lastmod>2026-04-20T15:17:14+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://ahmetberatkocyigit.com/karatay/</loc>
-  <lastmod>2026-05-27T15:17:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ahmetberatkocyigit.com/atlas/</loc>
-  <lastmod>2026-06-18T12:17:14+00:00</lastmod>
-  <priority>0.90</priority>
-</url>
-<url>
-  <loc>https://ahmetberatkocyigit.com/dynasty/</loc>
-  <lastmod>2026-06-18T12:17:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://ahmetberatkocyigit.com/links/</loc>
-  <lastmod>2026-07-16T12:17:14+00:00</lastmod>
-  <priority>0.10</priority>
-</url>
-<url>
-  <loc>https://ahmetberatkocyigit.com/screen/</loc>
-  <lastmod>2026-07-15T12:17:14+00:00</lastmod>
-  <priority>0.20</priority>
-</url>
+  <url>
+    <loc>https://ahmetberatkocyigit.com/atlas/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://ahmetberatkocyigit.com/karatay/</loc>
+    <lastmod>2026-05-27</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ahmetberatkocyigit.com/dynasty/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://ahmetberatkocyigit.com/screen/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <priority>0.20</priority>
+  </url>
+
+  <url>
+    <loc>https://ahmetberatkocyigit.com/links/</loc>
+    <lastmod>2026-07-16</lastmod>
+    <priority>0.10</priority>
+  </url>
 
 </urlset>
