@@ -6,7 +6,7 @@
     "reign": "1299-1324",
     "parents": ["ertugrul_gazi", "halime_hatun"],
     "wiki": "https://tr.wikipedia.org/wiki/Osman_Gazi",
-    "coordinates": [40.07, 29.98]
+    "coordinates": [40.1867754, 29.0573226]
   },
   {
     "id": "malhun_hatun",
@@ -30,7 +30,7 @@
     "reign": "1324-1362",
     "parents": ["osman_gazi", "malhun_hatun"],
     "wiki": "https://tr.wikipedia.org/wiki/Orhan_Gazi",
-    "coordinates": [40.18, 29.06]
+    "coordinates": [40.1867711, 29.0576941]
   },
   {
     "id": "alaeddin_pasa",
@@ -45,7 +45,7 @@
     "type": "eş",
     "name": "Nilüfer Hatun",
     "spouse": "orhan_gazi",
-    "image_url": "https://www.devletialiyyei.com/wp-content/uploads/2021/09/unnamed-15.jpg",
+    "image_url": "https://static.ticimax.cloud/38016/uploads/urunresimleri/thumb/klasikmarcel-sanat-elmas-mozaik-tablo--61-a19.jpg",
     "wiki": "https://tr.wikipedia.org/wiki/Nil%C3%BCfer_Hatun"
   },
   {
@@ -53,8 +53,9 @@
     "type": "şehzade",
     "name": "Süleyman Paşa (Rumeli Fatihi)",
     "parents": ["orhan_gazi", "nilufer_hatun"],
-    "image_url": "https://trthaberstatic.cdn.wp.trt.com.tr/resimler/1136000/1136180.jpg",
-    "wiki": "https://tr.wikipedia.org/wiki/S%C3%BCleyman_Pa%C5%9Fa_(Orhan_Gazi'nin_o%C4%9Flu)"
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPRcxZmSaHESv2msw6wDyBezIR41dyjSmI85BeTFW_kEzeUPRXI8xS_Cs&s=10",
+    "wiki": "https://tr.wikipedia.org/wiki/S%C3%BCleyman_Pa%C5%9Fa_(Orhan_Gazi'nin_o%C4%9Flu)",
+    "coordinates": [40.5157791, 26.7555890]
   },
   {
     "id": "i_murad",
@@ -62,8 +63,7 @@
     "name": "I. Murad",
     "reign": "1362-1389",
     "parents": ["orhan_gazi", "nilufer_hatun"],
-    "wiki": "https://tr.wikipedia.org/wiki/I._Murad",
-    "coordinates": [42.41, 21.48]
+    "wiki": "https://tr.wikipedia.org/wiki/I._Murad"
   },
   {
     "id": "gulcicek_hatun",
@@ -78,7 +78,7 @@
     "type": "şehzade",
     "name": "Şehzade Savcı Bey",
     "parents": ["i_murad", "gulcicek_hatun"],
-    "image_url": "https://image.hurimg.com/i/hurriyet/90/750x422/608951314e3fe11b4cd86637.jpg",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Rycaut1694bd1_0192_%28cropped%29.jpg?utm_source=tr.wikipedia.org&utm_campaign=index&utm_content=original",
     "wiki": "https://tr.wikipedia.org/wiki/Savcı_Bey"
   },
   {
@@ -87,14 +87,14 @@
     "name": "I. Bayezid",
     "reign": "1389-1402",
     "parents": ["i_murad", "gulcicek_hatun"],
-    "wiki": "https://tr.wikipedia.org/wiki/I._Bayezid",
-    "coordinates": [40.18, 29.07]
+    "wiki": "https://tr.wikipedia.org/wiki/I._Bayezid"
   },
   {
     "id": "devlet_hatun",
     "type": "eş",
     "name": "Devlet Hatun",
     "spouse": "i_bayezid",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTObQ8AJ_-0qyl9syuf9xFY5GHMXiDDkwnqa_DaXwta1A&s=10",
     "wiki": "https://tr.wikipedia.org/wiki/Devlet_Hatun"
   },
   {
@@ -124,9 +124,10 @@
     "type": "padişah",
     "name": "I. Mehmed (Çelebi)",
     "reign": "1413-1421",
-    "parents": ["i_bayezid", "devlet_hatun"],
+    "parents": ["i_bayezid", "devlet_hatun"], 
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Mehmed_I_miniature.jpg/250px-Mehmed_I_miniature.jpg?utm_source=tr.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
     "wiki": "https://tr.wikipedia.org/wiki/I._Mehmed",
-    "coordinates": [40.18, 29.06]
+    "coordinates": [40.1814112, 29.0748827]
   },
   {
     "id": "ii_murad",
@@ -134,15 +135,16 @@
     "name": "II. Murad",
     "reign": "1421-1444, 1446-1451",
     "parents": ["i_mehmed", "emine_hatun"],
-    "wiki": "https://tr.wikipedia.org/wiki/II._Murad",
-    "coordinates": [40.18, 29.06]
+    "wiki": "https://tr.wikipedia.org/wiki/II._Murad"
   },
   {
     "id": "huma_hatun",
     "type": "eş",
     "name": "Hüma Hatun",
     "spouse": "ii_murad",
-    "wiki": "https://tr.wikipedia.org/wiki/H%C3%BCma_Hatun"
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTadBkqUAy0oXTk2_PKMPU7YV61mX-hkDt8XqyXKjEALo9eA1Hao5a8ZZY&s=10",
+    "wiki": "https://tr.wikipedia.org/wiki/H%C3%BCma_Hatun",
+    "coordinates": [40.1908023, 29.0470147]
   },
   {
     "id": "mara_hatun",
@@ -166,14 +168,16 @@
     "reign": "1444-1446, 1451-1481",
     "parents": ["ii_murad", "huma_hatun"],
     "wiki": "https://tr.wikipedia.org/wiki/II._Mehmed",
-    "coordinates": [41.01, 28.97]
+    "coordinates": [41.0192840, 28.9502793]
   },
   {
     "id": "gulbahar_hatun_fatih",
     "type": "eş",
     "name": "I. Gülbahar Hatun",
     "spouse": "fatih_sultan_mehmed",
-    "wiki": "https://tr.wikipedia.org/wiki/I._G%C3%BClbahar_Hatun"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Favorita_Anne_1480_G%C3%BClbahar_Hatun.jpg?utm_source=tr.wikipedia.org&utm_campaign=index&utm_content=original",
+    "wiki": "https://tr.wikipedia.org/wiki/Gülbahar_Hatun_(II._Mehmed%27in_eşi)",
+    "coordinates": [41.0191331, 28.9505866]
   },
   {
     "id": "cicek_hatun",
@@ -189,21 +193,22 @@
     "name": "II. Bayezid",
     "reign": "1481-1512",
     "parents": ["fatih_sultan_mehmed", "gulbahar_hatun_fatih"],
-    "wiki": "https://tr.wikipedia.org/wiki/II._Bayezid",
-    "coordinates": [41.01, 28.96]
+    "wiki": "https://tr.wikipedia.org/wiki/II._Bayezid"
   },
   {
     "id": "cem_sultan",
     "type": "şehzade",
     "name": "Cem Sultan",
     "parents": ["fatih_sultan_mehmed", "cicek_hatun"],
-    "wiki": "https://tr.wikipedia.org/wiki/Cem_Sultan"
+    "wiki": "https://tr.wikipedia.org/wiki/Cem_Sultan",
+    "coordinates": [40.1905553, 29.0456297]
   },
   {
     "id": "sehzade_mustafa_fatih",
     "type": "şehzade",
     "name": "Şehzade Mustafa",
     "parents": ["fatih_sultan_mehmed", "gulbahar_hatun_fatih"],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/%C5%9Eehzade_Mustafa.jpg/250px-%C5%9Eehzade_Mustafa.jpg?utm_source=tr.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
     "wiki": "https://tr.wikipedia.org/wiki/%C5%9Eehzade_Mustafa_(II._Mehmed'in_o%C4%9Flu)"
   },
   {
@@ -211,6 +216,7 @@
     "type": "eş",
     "name": "Ayşe Gülbahar Hatun",
     "spouse": "ii_bayezid",
+    "image_url": "https://img-s2.onedio.com/id-61b84e262e62ca0b530f4267/rev-0/w-600/h-727/f-jpg/s-52a3cb5c6dd4557adaabee60592ebb4b9f9ffa30.jpg",
     "wiki": "https://tr.wikipedia.org/wiki/II._G%C3%BClbahar_Hatun"
   },
   {
@@ -220,14 +226,14 @@
     "reign": "1512-1520",
     "parents": ["ii_bayezid", "gulbahar_hatun_bayezid"],
     "wiki": "https://tr.wikipedia.org/wiki/I._Selim",
-    "coordinates": [41.02, 28.95]
+    "coordinates": [41.0262710, 28.9516470]
   },
   {
     "id": "sehzade_ahmet_bayezid",
     "type": "şehzade",
     "name": "Şehzade Ahmet",
     "parents": ["ii_bayezid", "gulbahar_hatun_bayezid"],
-    "image_url": "https://static.wikia.nocookie.net/totalwar-ar/images/0/0f/Ahmet.png/revision/latest?cb=20140112185030",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/13/%C5%9Eehzade_Ahmed_I.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
     "wiki": "https://tr.wikipedia.org/wiki/%C5%9Eehzade_Ahmet"
   },
   {
@@ -235,6 +241,7 @@
     "type": "şehzade",
     "name": "Şehzade Korkut",
     "parents": ["ii_bayezid", "gulbahar_hatun_bayezid"],
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0-INeP7sj2bH-oOKiIA4YPg2qB8LK_SVonTp672oMWgJHMTZfx4GNuppe&s=10",
     "wiki": "https://tr.wikipedia.org/wiki/%C5%9Eehzade_Korkut"
   },
   {
@@ -251,35 +258,39 @@
     "reign": "1520-1566",
     "parents": ["yavuz_sultan_selim", "hafsa_sultan"],
     "wiki": "https://tr.wikipedia.org/wiki/I._S%C3%BCleyman",
-    "coordinates": [41.02, 28.95]
+    "coordinates": [41.0156999, 28.9644663]
   },
   {
     "id": "mahidevran_sultan",
     "type": "eş",
     "name": "Mahidevran Sultan",
     "spouse": "kanuni_sultan_suleyman",
-    "wiki": "https://tr.wikipedia.org/wiki/Mahidevran_Sultan"
+    "image_url": "https://img-s3.onedio.com/id-61cabe32f1a2709c0b38c622/rev-0/w-600/h-732/f-jpg/s-4b8e9452b13f7e8c5ebd588b810805bd51fc6d9c.jpg",
+    "wiki": "https://tr.wikipedia.org/wiki/Mahidevran_Sultan",
+    "coordinates": [40.1903955, 29.0458281]
   },
   {
     "id": "hurrem_sultan",
     "type": "eş",
     "name": "Hürrem Sultan",
     "spouse": "kanuni_sultan_suleyman",
-    "wiki": "https://tr.wikipedia.org/wiki/H%C3%BCrrem_Sultan"
+    "wiki": "https://tr.wikipedia.org/wiki/H%C3%BCrrem_Sultan",
+    "coordinates": [41.0156683, 28.9648085]
   },
   {
     "id": "sehzade_mustafa_kanuni",
     "type": "şehzade",
     "name": "Şehzade Mustafa",
     "parents": ["kanuni_sultan_suleyman", "mahidevran_sultan"],
-    "wiki": "https://tr.wikipedia.org/wiki/%C5%9Eehzade_Mustafa"
+    "wiki": "https://tr.wikipedia.org/wiki/%C5%9Eehzade_Mustafa",
+    "coordinates": [40.1903955, 29.0458281]
   },
   {
     "id": "sehzade_mehmed_kanuni",
     "type": "şehzade",
     "name": "Şehzade Mehmed",
     "parents": ["kanuni_sultan_suleyman", "hurrem_sultan"],
-    "image_url": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH2RYKCeQBiNTGDTytAlstsFOtrbkW2jUTrN0Jh-a2Ag&s=10",
     "wiki": "https://tr.wikipedia.org/wiki/%C5%9Eehzade_Mehmed"
   },
   {
@@ -288,7 +299,8 @@
     "name": "Mihrimah Sultan",
     "parents": ["kanuni_sultan_suleyman", "hurrem_sultan"],
     "image_url": "https://iasbh.tmgrup.com.tr/5c9b01/0/0/0/0/0/0?u=https://isbh.tmgrup.com.tr/sbh/2019/09/25/1569400997455.jpg&mw=600",
-    "wiki": "https://tr.wikipedia.org/wiki/Mihrimah_Sultan"
+    "wiki": "https://tr.wikipedia.org/wiki/Mihrimah_Sultan",
+    "coordinates": [41.0156999, 28.9644663]
   },
   {
     "id": "ii_selim",
@@ -297,7 +309,7 @@
     "reign": "1566-1574",
     "parents": ["kanuni_sultan_suleyman", "hurrem_sultan"],
     "wiki": "https://tr.wikipedia.org/wiki/II._Selim",
-    "coordinates": [41.00, 28.97]
+    "coordinates": [41.0079242, 28.9796959]
   },
   {
     "id": "sehzade_bayezid_kanuni",
@@ -330,14 +342,15 @@
     "reign": "1574-1595",
     "parents": ["ii_selim", "nurbanu_sultan"],
     "wiki": "https://tr.wikipedia.org/wiki/III._Murad",
-    "coordinates": [41.00, 28.98]
+    "coordinates": [41.0078822, 28.9794234]
   },
   {
     "id": "safiye_sultan",
     "type": "eş",
     "name": "Safiye Sultan",
     "spouse": "iii_murad",
-    "wiki": "https://tr.wikipedia.org/wiki/Safiye_Sultan"
+    "wiki": "https://tr.wikipedia.org/wiki/Safiye_Sultan",
+    "coordinates": [41.0078822, 28.9794234]
   },
   {
     "id": "iii_mehmed",
@@ -346,14 +359,16 @@
     "reign": "1595-1603",
     "parents": ["iii_murad", "safiye_sultan"],
     "wiki": "https://tr.wikipedia.org/wiki/III._Mehmed",
-    "coordinates": [41.00, 28.97]
+    "coordinates": [41.0077835, 28.9799029]
   },
   {
     "id": "handan_sultan",
     "type": "eş",
     "name": "Handan Sultan",
     "spouse": "iii_mehmed",
-    "wiki": "https://tr.wikipedia.org/wiki/Handan_Sultan"
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpSowi-9sp4_cyLmyXZLpEDIi9dgAvKju-ppscnBCzAVSSERzAPDMcNoE&s=10",
+    "wiki": "https://tr.wikipedia.org/wiki/Handan_Sultan",
+    "coordinates": [41.0077835, 28.9799029]
   },
   {
     "id": "halime_sultan",
@@ -370,7 +385,7 @@
     "reign": "1603-1617",
     "parents": ["iii_mehmed", "handan_sultan"],
     "wiki": "https://tr.wikipedia.org/wiki/I._Ahmed",
-    "coordinates": [41.00, 28.97]
+    "coordinates": [41.0067836, 28.9770268]
   },
   {
     "id": "i_mustafa",
@@ -379,15 +394,15 @@
     "reign": "1617-1618, 1622-1623",
     "parents": ["iii_mehmed", "halime_sultan"],
     "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvrReusQ4Yx5cCbMlbLj2Opm8f4Jxz1_ItdQ&s",
-    "wiki": "https://tr.wikipedia.org/wiki/I._Mustafa",
-    "coordinates": [41.00, 28.97]
+    "wiki": "https://tr.wikipedia.org/wiki/I._Mustafa"
   },
   {
     "id": "kosem_sultan",
     "type": "eş",
     "name": "Mahpeyker Kösem Sultan",
     "spouse": "i_ahmed",
-    "wiki": "https://tr.wikipedia.org/wiki/K%C3%B6sem_Sultan"
+    "wiki": "https://tr.wikipedia.org/wiki/K%C3%B6sem_Sultan",
+    "coordinates": [41.0067836, 28.9770268]
   },
   {
     "id": "mahfiruz_hatice_sultan",
@@ -403,7 +418,7 @@
     "reign": "1618-1622",
     "parents": ["i_ahmed", "mahfiruz_hatice_sultan"],
     "wiki": "https://tr.wikipedia.org/wiki/II._Osman",
-    "coordinates": [41.00, 28.97]
+    "coordinates": [41.0067836, 28.9770268]
   },
   {
     "id": "iv_murad",
@@ -412,7 +427,7 @@
     "reign": "1623-1640",
     "parents": ["i_ahmed", "kosem_sultan"],
     "wiki": "https://tr.wikipedia.org/wiki/IV._Murad",
-    "coordinates": [41.00, 28.97]
+    "coordinates": [41.0067836, 28.9770268]
   },
   {
     "id": "ibrahim",
@@ -420,8 +435,7 @@
     "name": "I. İbrahim (Deli)",
     "reign": "1640-1648",
     "parents": ["i_ahmed", "kosem_sultan"],
-    "wiki": "https://tr.wikipedia.org/wiki/İbrahim_(Osmanlı_padişahı)",
-    "coordinates": [41.00, 28.97]
+    "wiki": "https://tr.wikipedia.org/wiki/İbrahim_(Osmanlı_padişahı)"
   },
   {
     "id": "turhan_hatice_sultan",
@@ -429,7 +443,8 @@
     "name": "Turhan Hatice Sultan",
     "spouse": "ibrahim",
     "image_url": "",
-    "wiki": "https://tr.wikipedia.org/wiki/Hatice_Turhan_Sultan"
+    "wiki": "https://tr.wikipedia.org/wiki/Hatice_Turhan_Sultan",
+    "coordinates": [41.0162025, 28.9719047]
   },
   {
     "id": "iv_mehmed",
@@ -437,16 +452,17 @@
     "name": "IV. Mehmed (Avcı)",
     "reign": "1648-1687",
     "parents": ["ibrahim", "turhan_hatice_sultan"],
-    "image_url": "",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2nZC_BGxrLd762s_xWzS0Z-DNxrKxnveUDQ1cQAzc6RnuCB0S5MgGz2fDhl_IHNL9QVG5fKQAAvWnMX6OZ8uC8mN1Tq5w_EQivSRmAw&s=10",
     "wiki": "https://tr.wikipedia.org/wiki/IV._Mehmed",
-    "coordinates": [41.01, 28.97]
+    "coordinates": [41.0162025, 28.9719047]
   },
   {
     "id": "asubay_sultan",
     "type": "eş",
     "name": "Saliha Dilaşub Sultan",
     "spouse": "ibrahim",
-    "wiki": "https://tr.wikipedia.org/wiki/Saliha_Dila%C5%9Fub_Sultan"
+    "wiki": "https://tr.wikipedia.org/wiki/Saliha_Dila%C5%9Fub_Sultan",
+    "coordinates": [41.0156999, 28.9644663]
   },
   {
     "id": "muazzez_sultan",
@@ -461,8 +477,7 @@
     "name": "II. Süleyman",
     "reign": "1687-1691",
     "parents": ["ibrahim", "asubay_sultan"],
-    "wiki": "https://tr.wikipedia.org/wiki/II._S%C3%BCleyman",
-    "coordinates": [41.02, 28.96]
+    "wiki": "https://tr.wikipedia.org/wiki/II._S%C3%BCleyman"
   },
   {
     "id": "ii_ahmed",
@@ -470,14 +485,14 @@
     "name": "II. Ahmed",
     "reign": "1691-1695",
     "parents": ["ibrahim", "muazzez_sultan"],
-    "wiki": "https://tr.wikipedia.org/wiki/II._Ahmed",
-    "coordinates": [41.02, 28.96]
+    "wiki": "https://tr.wikipedia.org/wiki/II._Ahmed"
   },
   {
     "id": "gulnus_sultan",
     "type": "eş",
     "name": "Emetullah Râbia Gülnûş Sultan",
     "spouse": "iv_mehmed",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmt4iJCjrqpv07zy6gM7w-pQPS4WC9WCfDnytL4mw4BtCuiDApmFm2pKA-LeFzgiTYf5e31-jaoMwfi6PNfPmfgEgLHwJ5AWgzsUS51g&s=10",
     "wiki": "https://tr.wikipedia.org/wiki/Emetullah_R%C3%A2bia_G%C3%BCln%C3%BB%C5%9F_Sultan"
   },
   {
@@ -487,7 +502,7 @@
     "reign": "1695-1703",
     "parents": ["iv_mehmed", "gulnus_sultan"],
     "wiki": "https://tr.wikipedia.org/wiki/II._Mustafa",
-    "coordinates": [41.01, 28.97]
+    "coordinates": [41.0162025, 28.9719047]
   },
   {
     "id": "iii_ahmed",
@@ -496,13 +511,14 @@
     "reign": "1703-1730",
     "parents": ["iv_mehmed", "gulnus_sultan"],
     "wiki": "https://tr.wikipedia.org/wiki/III._Ahmed",
-    "coordinates": [41.01, 28.97]
+    "coordinates": [41.0162025, 28.9719047]
   },
   {
     "id": "sehzade_ibrahim_iii_ahmed",
     "type": "şehzade",
     "name": "Şehzade İbrahim",
     "parents": ["iii_ahmed", "mihrisah_kadin"],
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Sultan_%C4%B0brahim%2C_17._y%C3%BCzy%C4%B1l_grav%C3%BCr%C3%BC.jpg/250px-Sultan_%C4%B0brahim%2C_17._y%C3%BCzy%C4%B1l_grav%C3%BCr%C3%BC.jpg?utm_source=tr.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
     "wiki": "https://tr.wikipedia.org/wiki/%C5%9Eehzade_%C4%B0brahim_(III._Ahmed'in_o%C4%9Flu)"
   },
   {
@@ -510,6 +526,7 @@
     "type": "eş",
     "name": "Mihrişah Kadın",
     "spouse": "iii_ahmed",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjP74MuntdV-IWHR4Nns2wBm1Jd5wGvRuQLZ6JrLEwrMg_kLrxYftmVd4&s=10",
     "wiki": "https://en.wikipedia.org/wiki/Mihrişah_Kadın"
   },
   {
@@ -517,7 +534,7 @@
     "type": "eş",
     "name": "Saliha Sultan",
     "spouse": "ii_mustafa",
-    "image_url": "",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Haseki_Sultan.jpg/250px-Haseki_Sultan.jpg?utm_source=tr.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
     "wiki": "https://tr.wikipedia.org/wiki/Saliha_Sultan"
   },
   {
@@ -525,6 +542,7 @@
     "type": "eş",
     "name": "Şehsuvar Sultan",
     "spouse": "ii_mustafa",
+    "image_url": "https://pbs.twimg.com/media/DjSL6vzWsAEzTr4.jpg",
     "wiki": "https://tr.wikipedia.org/wiki/%C5%9Eehsuvar_Sultan"
   },
   {
@@ -534,7 +552,7 @@
     "reign": "1730-1754",
     "parents": ["ii_mustafa", "saliha_sultan"],
     "wiki": "https://tr.wikipedia.org/wiki/I._Mahmud",
-    "coordinates": [41.01, 28.97]
+    "coordinates": [41.0162025, 28.9719047]
   },
   {
     "id": "iii_osman",
@@ -543,7 +561,7 @@
     "reign": "1754-1757",
     "parents": ["ii_mustafa", "sehsuvar_sultan"],
     "wiki": "https://tr.wikipedia.org/wiki/III._Osman",
-    "coordinates": [41.01, 28.97]
+    "coordinates": [41.0162025, 28.9719047]
   },
   {
     "id": "iii_mustafa",
@@ -552,14 +570,15 @@
     "reign": "1757-1774",
     "parents": ["iii_ahmed", "mihrisah_kadin"],
     "wiki": "https://tr.wikipedia.org/wiki/III._Mustafa",
-    "coordinates": [41.01, 28.95]
+    "coordinates": [41.0097344, 28.9559644]
   },
   {
     "id": "mihrisah_valide_sultan",
     "type": "eş",
     "name": "Mihrişah Valide Sultan",
     "spouse": "iii_mustafa",
-    "wiki": "https://tr.wikipedia.org/wiki/Mihri%C5%9Fah_Valide_Sultan"
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyj5-W8mtCnkGxQH3J9zBpO44SsG8EBqWLMjz9J_eGudS0mbIMBYYzBa8O&s=10",
+    "wiki": "https://tr.wikipedia.org/wiki/Mihrişah_Sultan"
   },
   {
     "id": "iii_selim",
@@ -568,7 +587,7 @@
     "reign": "1789-1807",
     "parents": ["iii_mustafa", "mihrisah_valide_sultan"],
     "wiki": "https://tr.wikipedia.org/wiki/III._Selim",
-    "coordinates": [41.01, 28.95]
+    "coordinates": [41.0097344, 28.9559644]
   },
   {
     "id": "i_abdulhamid",
@@ -577,13 +596,14 @@
     "reign": "1774-1789",
     "parents": ["iii_ahmed", "sermi_kadin"],
     "wiki": "https://tr.wikipedia.org/wiki/I._Abd%C3%BClhamid",
-    "coordinates": [41.01, 28.97]
+    "coordinates": [41.0155000, 28.9741390]
   },
   {
     "id": "sineperver_sultan",
     "type": "eş",
     "name": "Ayşe Sineperver Sultan",
     "spouse": "i_abdulhamid",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtG7dBNThVjUh0J9Ky9kGZO5uIvG59kmh94Hy2dQfejUNcCsJFzi4bWUSv&s=10",
     "wiki": "https://tr.wikipedia.org/wiki/Ay%C5%9Fe_Sineperver_Sultan"
   },
   {
@@ -600,7 +620,7 @@
     "reign": "1807-1808",
     "parents": ["i_abdulhamid", "sineperver_sultan"],
     "wiki": "https://tr.wikipedia.org/wiki/IV._Mustafa",
-    "coordinates": [41.01, 28.97]
+    "coordinates": [41.0155000, 28.9741390]
   },
   {
     "id": "ii_mahmud",
@@ -609,14 +629,16 @@
     "reign": "1808-1839",
     "parents": ["i_abdulhamid", "naksidil_sultan"],
     "wiki": "https://tr.wikipedia.org/wiki/II._Mahmud",
-    "coordinates": [41.01, 28.97]
+    "coordinates": [41.0086110, 28.9725000]
   },
   {
     "id": "bezmialem_sultan",
     "type": "eş",
     "name": "Bezmialem Sultan",
     "spouse": "ii_mahmud",
-    "wiki": "https://tr.wikipedia.org/wiki/Bezm-i_%C3%82lem_Sultan"
+    "image_url": "https://www.artgarage.com.tr/resimler/20012016190509.jpg",
+    "wiki": "https://tr.wikipedia.org/wiki/Bezmiâlem_Valide_Sultan",
+    "coordinates": [41.0086110, 28.9725000]
   },
   {
     "id": "pertevniyal_sultan",
@@ -631,8 +653,7 @@
     "name": "I. Abdülmecid (Tanzimat)",
     "reign": "1839-1861",
     "parents": ["ii_mahmud", "bezmialem_sultan"],
-    "wiki": "https://tr.wikipedia.org/wiki/I._Abd%C3%BClmecid",
-    "coordinates": [41.02, 28.95]
+    "wiki": "https://tr.wikipedia.org/wiki/Abdülmecid"
   },
   {
     "id": "abdulaziz",
@@ -641,21 +662,23 @@
     "reign": "1861-1876",
     "parents": ["ii_mahmud", "pertevniyal_sultan"],
     "wiki": "https://tr.wikipedia.org/wiki/Abd%C3%BClaziz",
-    "coordinates": [41.01, 28.97]
+    "coordinates": [41.0086110, 28.9725000]
   },
   {
     "id": "tirimujgan_kadin",
     "type": "eş",
     "name": "Tîrimüjgan Kadın",
     "spouse": "abdulmecid",
-    "wiki": "https://tr.wikipedia.org/wiki/T%C3%AErim%C3%BCjgan_Kad%C4%B1n"
+    "image_url": "https://www.malumatfurus.org/2-abdulhamidin-annesi-virjin-tirimujgan/fatma-aliye-hanimsultan-2/",
+    "wiki": "https://tr.wikipedia.org/wiki/Tirimüjgan_Kadınefendi"
   },
   {
     "id": "gulcemal_kadin",
     "type": "eş",
     "name": "Gülcemal Kadın",
     "spouse": "abdulmecid",
-    "wiki": "https://tr.wikipedia.org/wiki/G%C3%BClcemal_Kad%C4%B1n"
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/The_Jewel_of_the_Harem_%281878%29_-_TIMEA.jpg/250px-The_Jewel_of_the_Harem_%281878%29_-_TIMEA.jpg?utm_source=es.wikipedia.org&utm_campaign=parser&utm_content=thumbnail",
+    "wiki": "https://tr.wikipedia.org/wiki/Gülcemal_Kadınefendi"
   },
   {
     "id": "gulustu_hanim",
@@ -670,8 +693,7 @@
     "name": "V. Murad",
     "reign": "1876-1876",
     "parents": ["abdulmecid", "sevkefza_sultan"],
-    "wiki": "https://tr.wikipedia.org/wiki/V._Murad",
-    "coordinates": [41.01, 28.97]
+    "wiki": "https://tr.wikipedia.org/wiki/V._Murad"
   },
   {
     "id": "ii_abdulhamid",
@@ -680,14 +702,14 @@
     "reign": "1876-1909",
     "parents": ["abdulmecid", "tirimujgan_kadin"],
     "wiki": "https://tr.wikipedia.org/wiki/II._Abd%C3%BClhamid",
-    "coordinates": [41.01, 28.97]
+    "coordinates": [41.0086110, 28.9725000]
   },
   {
     "id": "bedrifelek_kadin",
     "type": "eş",
     "name": "Bedrifelek Kadın",
     "spouse": "ii_abdulhamid",
-    "wiki": "https://tr.wikipedia.org/wiki/Bedrifelek_Kad%C4%B1n"
+    "wiki": "https://tr.wikipedia.org/wiki/Bedrifelek_Kadınefendi"
   },
   {
     "id": "sehzade_mehmed_selim",
@@ -703,7 +725,7 @@
     "reign": "1909-1918",
     "parents": ["abdulmecid", "gulcemal_kadin"],
     "wiki": "https://tr.wikipedia.org/wiki/V._Mehmed",
-    "coordinates": [41.11, 29.04]
+    "coordinates": [41.0479000, 28.9358000]
   },
   {
     "id": "vi_mehmed_vahdeddin",
@@ -711,8 +733,7 @@
     "name": "VI. Mehmed (Vahdeddin)",
     "reign": "1918-1922",
     "parents": ["abdulmecid", "gulustu_hanim"],
-    "wiki": "https://tr.wikipedia.org/wiki/VI._Mehmed",
-    "coordinates": [33.51, 36.28]
+    "wiki": "https://tr.wikipedia.org/wiki/VI._Mehmed"
   },
   {
     "id": "abdulmecid_efendi",
@@ -720,8 +741,7 @@
     "name": "Abdülmecid Efendi (Son Halife)",
     "reign": "1922-1924",
     "parents": ["abdulaziz", "hayranidil_kadin"],
-    "wiki": "https://tr.wikipedia.org/wiki/II._Abd%C3%BClmecid",
-    "coordinates": [24.46, 39.61]
+    "wiki": "https://tr.wikipedia.org/wiki/Abdülmecid_Efendi"
   },
   {
     "id": "durrusehvar_sultan",
