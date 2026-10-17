@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <!-- Icons (Font Awesome) -->
@@ -32,29 +32,8 @@
     <link rel="stylesheet" href="assests/css/style.css">
 </head>
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader-content">
-            <div class="loader-logo">ABK<span>.</span></div>
-            <div class="loader-bar-container">
-                <div class="loader-bar"></div>
-            </div>
-            <p class="loader-text" data-i18n="loader_text">Initializing Workspace...</p>
-        </div>
-    </div>
     <!-- Top Scroll Progress Bar -->
     <div class="scroll-progress" id="scroll-progress"></div>
-
-    <!-- Background Effects -->
-    <div class="bg-effects">
-        <div class="glow-orb orb-1"></div>
-        <div class="glow-orb orb-2"></div>
-        <div class="glow-orb orb-3"></div>
-    </div>
-    
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-glow"></div>
 
     <!-- Navigation -->
     <nav class="glass-nav">
@@ -67,7 +46,7 @@
                 <li><a href="#hero" class="nav-link" data-i18n="nav_home">Home</a></li>
                 <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
                 <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a></li>
-                <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Projects</a></li>
+                <li><a href="#live-projects" class="nav-link" data-i18n="nav_projects">Projects</a></li>
                 <li><a href="#competitions" class="nav-link" data-i18n="nav_achievements">Achievements</a></li>
             </ul>
 
@@ -98,7 +77,7 @@
             <li><a href="#hero" data-i18n="nav_home">Home</a></li>
             <li><a href="#about" data-i18n="nav_about">About</a></li>
             <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
-            <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+            <li><a href="#live-projects" data-i18n="nav_projects">Projects</a></li>
             <li><a href="#competitions" data-i18n="nav_achievements">Achievements</a></li>
             <li><a href="#contact" class="mobile-contact-btn" data-i18n="nav_contact_btn">Get in Touch</a></li>
         </ul>
@@ -107,23 +86,22 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section">
         <div class="container hero-container">
-            <div class="hero-content reveal-init">
+            <div class="hero-content">
                 <div class="badge-wrapper">
                     <span class="hero-badge cursor-pointer" id="badge-typing-container">
                         <span class="live-dot"></span>
-                        <span id="typed-text">Software Developer</span>
-                        <span class="typing-cursor">|</span>
+                        <span data-i18n="hero_eyebrow">Software developer · Digital humanities</span>
                     </span>
                 </div>
                 <h1 class="hero-title" data-i18n="hero_title">
-                    I Am <br>
-                    <span class="gradient-text gradient-animated">Ahmet Berat Koçyiğit</span>
+                    Hi, I'm <br>
+                    <span class="gradient-text">Ahmet Berat Koçyiğit.</span>
                 </h1>
                 <p class="hero-desc" data-i18n="hero_desc">
-                    Hi, I am <strong>Ahmet</strong>. I develop autonomous systems, AI-powered UAV technologies, and modern web applications. I'm passionate about exploring the intersection of Digital Humanities and cutting-edge software solutions.
+                    I turn historical sources into interactive digital projects, and also work on autonomous systems and UAV technologies.
                 </p>
                 <div class="hero-cta">
-                    <a href="#projects" class="btn btn-primary btn-lg group magnetic-btn" data-i18n="hero_projects">
+                    <a href="#live-projects" class="btn btn-primary btn-lg group magnetic-btn" data-i18n="hero_projects">
                         My Projects 
                         <i class="fas fa-arrow-right"></i>
                     </a>
@@ -141,32 +119,14 @@
                 </div>
             </div>
             
-            <div class="hero-visual reveal-init delay-200">
-                <div class="visual-container">
-                    <div class="code-window">
-                        <div class="window-header">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                            <span class="window-title">main.py</span>
-                        </div>
-                        <div class="window-body">
-                            <pre><code><span class="keyword">class</span> <span class="entity">Developer</span>:
-    <span class="keyword">def</span> <span class="function">__init__</span>(self):
-        self.name = <span class="string">"Ahmet Berat"</span>
-        self.focus = [<span class="string">"Autonomous Systems"</span>, <span class="string">"AI"</span>]
-        self.is_coding = <span class="boolean">True</span>
-
-    <span class="keyword">def</span> <span class="function">innovate</span>(self):
-        <span class="keyword">while</span> self.is_coding:
-            <span class="keyword">return</span> <span class="string">"Building the future..."</span></code></pre>
-                        </div>
-                    </div>
-                    
-                    <div class="floating-elements">
-                        <div class="float-item icon-python"><i class="fas fa-terminal"></i></div>
-                        <div class="float-item icon-drone"><i class="fas fa-plane"></i></div>
-                        <div class="float-item icon-brain"><i class="fas fa-brain"></i></div>
+            <div class="hero-visual">
+                <div class="hero-portrait">
+                    <span class="portrait-ring portrait-ring-outer" aria-hidden="true"></span>
+                    <span class="portrait-ring portrait-ring-inner" aria-hidden="true"></span>
+                    <img class="hero-portrait-image" src="https://avatars.githubusercontent.com/u/135528027?v=4" alt="Ahmet Berat Koçyiğit — software developer" fetchpriority="high">
+                    <div class="portrait-caption">
+                        <span class="portrait-caption-line" aria-hidden="true"></span>
+                        
                     </div>
                 </div>
             </div>
@@ -177,6 +137,75 @@
                 <div class="wheel"></div>
             </div>
             <span class="scroll-text" data-i18n="scroll_down">Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- Selected Live Projects -->
+    <section id="live-projects" class="section live-work-section">
+        <div class="container">
+            <div class="section-header reveal-init">
+                <p class="section-kicker" data-i18n="live_projects_kicker">Selected work · 01—04</p>
+                <h2 class="section-title" data-i18n="live_projects_title">Projects you can explore</h2>
+                <p class="section-subtitle" data-i18n="live_projects_subtitle">A few live projects built around history, places and the web.</p>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="live-projects-grid">
+                <article class="live-project-card glass-card reveal-init">
+                    <a class="live-project-image" href="atlas/" target="_blank" rel="noopener noreferrer" aria-label="Open the interactive digital atlas">
+                        <img src="atlas/harita.png" alt="Interactive map visualizing the world described in Divânu Lügati't-Türk" loading="lazy">
+                        <span class="project-number">01</span>
+                    </a>
+                    <div class="live-project-content">
+                        <div class="project-meta"><span data-i18n="project_tag_map">Interactive map</span><span data-i18n="project_live">Live project</span></div>
+                        <h3 data-i18n="project_map_title">Interactive Digital Atlas</h3>
+                        <p data-i18n="project_map_desc">An interactive map based on the places and peoples described in Kaşgarlı Mahmud's Divânu Lügati't-Türk.</p>
+                        <a href="atlas/" target="_blank" rel="noopener noreferrer" class="project-open-link"><span data-i18n="project_open">Explore project</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+
+                <article class="live-project-card glass-card reveal-init delay-100">
+                    <a class="live-project-image dictionary-cover" href="dictionary/" target="_blank" rel="noopener noreferrer" aria-label="Open the digital dictionary">
+                        <span class="dictionary-cover-top">KAŞGARLI MAHMUD · 11. YÜZYIL</span>
+                        <strong>Divânu<br>Lügati't-Türk</strong>
+                        <span class="dictionary-search"><i class="fas fa-magnifying-glass" aria-hidden="true"></i><span data-i18n="project_dictionary_search">Kelime veya anlam ara</span><span>/</span></span>
+                        <span class="dictionary-entry"><b>01</b><span data-i18n="project_dictionary_entry">Kelimeler · Anlamlar · Örnekler</span></span>
+                        <span class="project-number">02</span>
+                    </a>
+                    <div class="live-project-content">
+                        <div class="project-meta"><span data-i18n="project_tag_dictionary">Digital dictionary</span><span data-i18n="project_live">Live project</span></div>
+                        <h3 data-i18n="project_dictionary_title">Divânu Lügati't-Türk Digital Dictionary</h3>
+                        <p data-i18n="project_dictionary_desc">A searchable catalogue of the words, meanings and usage examples in Kaşgarlı Mahmud's work.</p>
+                        <a href="dictionary/" target="_blank" rel="noopener noreferrer" class="project-open-link"><span data-i18n="project_open">Explore project</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+
+                <article class="live-project-card glass-card reveal-init">
+                    <a class="live-project-image" href="dynasty/" target="_blank" rel="noopener noreferrer" aria-label="Open the Ottoman dynasty atlas">
+                        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Foundation_of_the_Ottoman_Empire.jpg/330px-Foundation_of_the_Ottoman_Empire.jpg?utm_source=tr.wikipedia.org&utm_campaign=parser&utm_content=thumbnail" alt="Ottoman dynasty atlas viewed on a mobile phone" loading="lazy">
+                        <span class="project-number">03</span>
+                    </a>
+                    <div class="live-project-content">
+                        <div class="project-meta"><span data-i18n="project_tag_atlas">Digital history</span><span data-i18n="project_live">Live project</span></div>
+                        <h3 data-i18n="project_atlas_title">Ottoman Dynasty Atlas</h3>
+                        <p data-i18n="project_atlas_desc">An interactive family tree for exploring Ottoman rulers, relatives and the eras they lived in.</p>
+                        <a href="dynasty/" target="_blank" rel="noopener noreferrer" class="project-open-link"><span data-i18n="project_open">Explore project</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+
+                <article class="live-project-card glass-card reveal-init delay-100">
+                    <a class="live-project-image" href="karatay/" target="_blank" rel="noopener noreferrer" aria-label="Open the Karatay Madrasa virtual tour">
+                        <img src="https://konyabulteni.com/wp-content/uploads/2020/03/KARATAY-M%C3%9CZES%C4%B0.jpg" alt="Karatay Madrasa virtual tour entry screen" loading="lazy">
+                        <span class="project-number">04</span>
+                    </a>
+                    <div class="live-project-content">
+                        <div class="project-meta"><span data-i18n="project_tag_tour">Virtual tour</span><span data-i18n="project_live">Live project</span></div>
+                        <h3 data-i18n="project_karatay_title">Karatay Madrasa Virtual Tour</h3>
+                        <p data-i18n="project_karatay_desc">A guided digital visit to the Seljuk-era Karatay Madrasa in Konya.</p>
+                        <a href="karatay/" target="_blank" rel="noopener noreferrer" class="project-open-link"><span data-i18n="project_open">Explore project</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+            </div>
         </div>
     </section>
 
@@ -216,61 +245,6 @@
                             <h4 data-i18n="about_edu_school2">Doga College</h4>
                             <p class="subtitle" data-i18n="about_edu_program2">Secondary Education</p>
                             <span class="gpa" data-i18n="about_edu_gpa2">GPA: 95.99</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Live Projects Section (NEW) -->
-    <section id="live-projects" class="section">
-        <div class="container">
-            <div class="section-header reveal-init">
-                <h2 class="section-title" data-i18n="live_projects_title">Live Projects</h2>
-                <p class="section-subtitle" data-i18n="live_projects_subtitle">Ready-to-use professional applications and web platforms.</p>
-                <div class="title-line"></div>
-            </div>
-
-            <div class="live-projects-grid">
-                <!-- Project 1: Gök Medrese -->
-                <div class="live-project-card glass-card reveal-init">
-                    <div class="live-project-image">
-                        <div class="project-overlay">
-                            <div class="project-badges">
-                                <span class="badge">HTML</span>
-                                <span class="badge">JavaScript</span>
-                            </div>
-                        </div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Kashgari_map.jpg" alt="Ancient Map" loading="lazy">
-                    </div>
-                    <div class="live-project-content">
-                        <h3>İnteractive 11th-century Turkic World Map</h3>
-                        <p data-i18n="project_medrese_desc">A Digital Humanities project that maps the world's first Turkic dictionary, utilizing coordinate-based data visualization to transform classical literature into an immersive digital experience.</p>
-                        <div class="live-project-links">
-                            <a href="https://ahmetberatkocyigit.com/map/" class="btn btn-sm btn-primary">Live View <i class="fas fa-external-link-alt"></i></a>
-                            <a href="https://github.com/AhmetBeratKocyigit/Interactive-Digital-Atlas" class="social-icon sm"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2: Digital Dynasty Atlas -->
-                <div class="live-project-card glass-card reveal-init delay-100">
-                    <div class="live-project-image">
-                        <div class="project-overlay">
-                            <div class="project-badges">
-                                <span class="badge">Digital Humanities</span>
-                                <span class="badge">Interactive</span>
-                            </div>
-                        </div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Foundation_of_the_Ottoman_Empire.jpg/1920px-Foundation_of_the_Ottoman_Empire.jpg" alt="Digital Dynasty Atlas" loading="lazy">
-                    </div>
-                    <div class="live-project-content">
-                        <h3 data-i18n="project_atlas_title">Digital Dynasty Atlas</h3>
-                        <p data-i18n="project_atlas_desc">An interactive visual database exploring historical dynasties and their territorial evolutions through time.</p>
-                        <div class="live-project-links">
-                            <a href="https://ahmetberatkocyigit.com/dynasty/" class="btn btn-sm btn-primary">Live View <i class="fas fa-external-link-alt"></i></a>
-                            <a href="#" class="social-icon sm"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
@@ -574,7 +548,7 @@
                     <ul>
                         <li><a href="#hero" data-i18n="nav_home">Home</a></li>
                         <li><a href="#about" data-i18n="nav_about">About</a></li>
-                        <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+                        <li><a href="#live-projects" data-i18n="nav_projects">Projects</a></li>
                         <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
                     </ul>
                 </div>

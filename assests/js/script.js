@@ -1,20 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Icons are handled via Font Awesome (CSS classes)
 
-    // 2. Preloader Removal
-    const preloader = document.getElementById('preloader');
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            if (preloader) {
-                preloader.classList.add('fade-out');
-            }
-        }, 1000); // Small delay for effect
-    });
-
-    // 3. Translations
+    // 2. Translations
     const translations = {
         en: {
-            loader_text: "Initializing Workspace...",
             nav_home: "Home",
             nav_about: "About",
             nav_skills: "Skills",
@@ -22,11 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_achievements: "Achievements",
             nav_contact: "Contact",
             nav_contact_btn: "Get in Touch",
-            hero_title: "Hi, I am <br><span class='gradient-text gradient-animated'>Ahmet.</span>",
-            hero_desc: "Hi, I am <strong>Ahmet</strong>. I develop autonomous systems, AI-powered UAV technologies, and modern web applications. I'm passionate about exploring the intersection of <strong>Digital Humanities</strong> and cutting-edge software solutions.",
+            hero_eyebrow: "Software developer · Digital humanities",
+            hero_title: "Hi, I'm <br><span class='gradient-text'>Ahmet Berat Koçyiğit.</span>",
+            hero_desc: "I turn historical sources into interactive digital projects, and also work on autonomous systems and UAV technologies.",
             hero_projects: "My Projects",
+            hero_location: "Sivas, Türkiye",
+            hero_artwork_caption: "Software · History · New ideas",
             hero_cv: "Download CV",
-            scroll_down: "Scroll Down",
             about_title: "About Me",
             about_profile_title: "Profile Summary",
             about_profile_desc: "I am a senior high school student specializing in software development, autonomous systems, and AI-based UAV technologies. By transforming theoretical knowledge into practical applications in prestigious competitions like TEKNOFEST, I create innovative technological solutions for real-world problems. My interest in <strong>Digital Humanities</strong> drives me to bridge the gap between cultural heritage and modern computational methods.",
@@ -39,11 +30,25 @@ document.addEventListener('DOMContentLoaded', () => {
             about_edu_school2: "Doga College",
             about_edu_program2: "Secondary Education",
             about_edu_gpa2: "GPA: 95.99",
-            live_projects_title: "Live Projects",
-            live_projects_subtitle: "Ready-to-use professional applications and web platforms.",
-            project_medrese_desc: "A digital mapping and AR virtual tour project for Sivas Gök Medrese Foundation Museum.",
-            project_atlas_title: "Digital Dynasty Atlas",
-            project_atlas_desc: "An interactive visual database exploring historical dynasties and their territorial evolutions through time.",
+            live_projects_kicker: "Selected work · 01—04",
+            live_projects_title: "Projects you can explore",
+            live_projects_subtitle: "Four live projects built around history, places and the web.",
+            project_live: "Live project",
+            project_open: "Explore project",
+            project_tag_map: "Interactive map",
+            project_map_title: "Interactive Digital Atlas",
+            project_map_desc: "An interactive map based on the places and peoples described in Kaşgarlı Mahmud's Divânu Lügati't-Türk.",
+            project_tag_dictionary: "Digital dictionary",
+            project_dictionary_title: "Divânu Lügati't-Türk Digital Dictionary",
+            project_dictionary_desc: "A searchable catalogue of the words, meanings and usage examples in Kaşgarlı Mahmud's work.",
+            project_dictionary_search: "Search a word or meaning",
+            project_dictionary_entry: "Words · Meanings · Examples",
+            project_tag_atlas: "Digital history",
+            project_atlas_title: "Ottoman Dynasty Atlas",
+            project_atlas_desc: "An interactive family tree for exploring Ottoman rulers, relatives and the eras they lived in.",
+            project_tag_tour: "Virtual tour",
+            project_karatay_title: "Karatay Madrasa Virtual Tour",
+            project_karatay_desc: "A guided digital visit to the Seljuk-era Karatay Madrasa in Konya.",
             skills_title: "Tech Stack",
             skills_subtitle: "My expertise and tools I use daily.",
             skills_cat_languages: "Languages",
@@ -88,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
             footer_brand_desc: "Architecting the future through autonomous intelligence and digital craftsmanship.",
             footer_rights: "Crafted with Digital Precision.",
             toast_copy: "Copied to clipboard!",
-            typing_strings: ["Software Developer", "Autonomous Systems Engineer", "AI Researcher", "Digital Humanities Enthusiast"],
             cert1: "Defense Industry Training Program",
             cert2: "Cyber Security",
             cert3: "Project Management Fundamentals",
@@ -99,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
             cert8: "Python & TensorFlow"
         },
         tr: {
-            loader_text: "Çalışma Alanı Hazırlanıyor...",
             nav_home: "Ana Sayfa",
             nav_about: "Hakkımda",
             nav_skills: "Yetenekler",
@@ -107,11 +110,13 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_achievements: "Başarılar",
             nav_contact: "İletişim",
             nav_contact_btn: "İletişime Geç",
-            hero_title: "Merhaba, ben <br><span class='gradient-text gradient-animated'>Ahmet.</span>",
-            hero_desc: "Merhaba, ben <strong>Ahmet</strong>. Otonom sistemler, yapay zeka destekli İHA teknolojileri ve modern web uygulamaları geliştiriyorum. <strong>Dijital Beşeri Bilimler</strong> ile yazılım çözümlerinin kesişim noktasını keşfetmeyi tutkuyla yapıyorum.",
+            hero_eyebrow: "Yazılım geliştirici · Dijital beşeri bilimler",
+            hero_title: "Merhaba, ben <br><span class='gradient-text'>Ahmet Berat Koçyiğit.</span>",
+            hero_desc: "Tarihî kaynakları etkileşimli dijital projelere dönüştürüyorum; otonom sistemler ve İHA teknolojileri üzerine de çalışıyorum.",
             hero_projects: "Projelerim",
+            hero_location: "Sivas, Türkiye",
+            hero_artwork_caption: "Yazılım · Tarih · Yeni fikirler",
             hero_cv: "CV İndir",
-            scroll_down: "Aşağı Kaydır",
             about_title: "Hakkımda",
             about_profile_title: "Profil Özeti",
             about_profile_desc: "Yazılım geliştirme, otonom sistemler ve yapay zeka tabanlı İHA teknolojileri üzerine uzmanlaşmış bir lise son sınıf öğrencisiyim. TEKNOFEST gibi yarışmalarda kazandığım tecrübeleri gerçek dünya sorunlarına dönüştürüyorum. <strong>Dijital Beşeri Bilimler</strong> ilgi alanım ile kültürel miras ve modern hesaplamalı yöntemler arasında köprü kurmayı hedefliyorum.",
@@ -124,11 +129,25 @@ document.addEventListener('DOMContentLoaded', () => {
             about_edu_school2: "Doğa Koleji",
             about_edu_program2: "Ortaokul Eğitimi",
             about_edu_gpa2: "Ortalama: 95.99",
-            live_projects_title: "Canlı Projeler",
-            live_projects_subtitle: "Kullanıma hazır profesyonel uygulamalar ve web platformları.",
-            project_medrese_desc: "Sivas Gök Medrese Vakıf Müzesi için dijital haritalama ve AR sanal tur projesi.",
-            project_atlas_title: "Dijital Hanedan Atlası",
-            project_atlas_desc: "Tarihsel hanedanları ve onların zamana göre toprak değişimlerini inceleyen etkileşimli görsel veritabanı.",
+            live_projects_kicker: "Seçili işler · 01—04",
+            live_projects_title: "Canlı projelerim",
+            live_projects_subtitle: "Tarih, mekân ve web odağında geliştirdiğim dört proje.",
+            project_live: "Yayında",
+            project_open: "Projeyi incele",
+            project_tag_map: "Etkileşimli harita",
+            project_map_title: "Etkileşimli Dijital Atlas",
+            project_map_desc: "Kaşgarlı Mahmud'un Divânu Lügati't-Türk'ünde anlatılan yerleri ve toplulukları keşfetmeye yönelik etkileşimli bir harita.",
+            project_tag_dictionary: "Dijital sözlük",
+            project_dictionary_title: "Divânu Lügati't-Türk Dijital Sözlüğü",
+            project_dictionary_desc: "Kaşgarlı Mahmud'un eserindeki kelimeleri, anlamları ve kullanım örneklerini aranabilir bir katalogda buluşturuyor.",
+            project_dictionary_search: "Kelime veya anlam ara",
+            project_dictionary_entry: "Kelimeler · Anlamlar · Örnekler",
+            project_tag_atlas: "Dijital tarih",
+            project_atlas_title: "Osmanlı Hanedan Atlası",
+            project_atlas_desc: "Osmanlı padişahlarını, aile bağlarını ve yaşadıkları dönemleri keşfetmeye yönelik etkileşimli bir soy ağacı.",
+            project_tag_tour: "Sanal tur",
+            project_karatay_title: "Karatay Medresesi Sanal Turu",
+            project_karatay_desc: "Konya'daki Selçuklu dönemi Karatay Medresesi'nde rehberli bir dijital gezi.",
             skills_title: "Teknoloji Yığını",
             skills_subtitle: "Uzmanlık alanlarım ve kullandığım araçlar.",
             skills_cat_languages: "Diller",
@@ -173,7 +192,6 @@ document.addEventListener('DOMContentLoaded', () => {
             footer_brand_desc: "Otonom zeka ve dijital zanaatkarlıkla geleceği inşa ediyorum.",
             footer_rights: "Dijital Hassasiyetle Geliştirildi.",
             toast_copy: "Panoya kopyalandı!",
-            typing_strings: ["Yazılım Geliştirici", "Otonom Sistemler Mühendisi", "AI Araştırmacısı", "Dijital Beşeri Bilimler Tutkunu"],
             cert1: "Savunma Sanayii Eğitim Programı",
             cert2: "Siber Güvenlik",
             cert3: "Proje Yönetimi Temelleri",
@@ -189,15 +207,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function changeLanguage(lang) {
         currentLang = lang;
+        document.documentElement.lang = lang;
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[lang][key]) {
                 el.innerHTML = translations[lang][key];
             }
         });
-        
-        // Update Typing Array
-        textArray = translations[lang].typing_strings;
         
         // Update Lang Toggle Text
         const langCode = document.querySelector('.lang-code');
@@ -218,42 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearSpan = document.getElementById('current-year');
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // 5. Custom Cursor Glow
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorGlow = document.querySelector('.cursor-glow');
-
-    if (window.matchMedia("(pointer: fine)").matches) {
-        document.addEventListener('mousemove', (e) => {
-            if (cursorDot) {
-                cursorDot.style.left = e.clientX + 'px';
-                cursorDot.style.top = e.clientY + 'px';
-            }
-            if (cursorGlow) {
-                cursorGlow.style.left = e.clientX + 'px';
-                cursorGlow.style.top = e.clientY + 'px';
-            }
-        });
-
-        const interactiveElements = document.querySelectorAll('a, button, .project-card, .live-project-card, .contact-link-card, .social-icon');
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                if (cursorDot) {
-                    cursorDot.style.transform = 'translate(-50%, -50%) scale(1.5)';
-                    cursorDot.style.backgroundColor = 'transparent';
-                    cursorDot.style.border = '2px solid var(--primary)';
-                }
-            });
-            el.addEventListener('mouseleave', () => {
-                if (cursorDot) {
-                    cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
-                    cursorDot.style.backgroundColor = 'var(--primary)';
-                    cursorDot.style.border = 'none';
-                }
-            });
-        });
-    }
-
-    // 6. Navbar & Progress & 3D Scroll Effect
+    // 5. Navbar & Scroll Progress
     const nav = document.querySelector('.glass-nav');
     const progressBar = document.getElementById('scroll-progress');
     const parallaxContainers = document.querySelectorAll('[data-scroll-parallax]');
@@ -390,43 +371,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (projectsContainer) fetchGitHubProjects();
-
-    // 11. Typing Effect
-    const typedTextSpan = document.getElementById("typed-text");
-    const cursorSpan = document.querySelector(".typing-cursor");
-
-    let textArray = translations[currentLang].typing_strings;
-    const typingDelay = 100;
-    const erasingDelay = 50;
-    const newTextDelay = 1500;
-    let textArrayIndex = 0;
-    let charIndex = 0;
-
-    function type() {
-        if (!typedTextSpan) return;
-        if (charIndex < textArray[textArrayIndex].length) {
-            typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-            charIndex++;
-            setTimeout(type, typingDelay);
-        } else {
-            setTimeout(erase, newTextDelay);
-        }
-    }
-
-    function erase() {
-        if (!typedTextSpan) return;
-        if (charIndex > 0) {
-            typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
-            charIndex--;
-            setTimeout(erase, erasingDelay);
-        } else {
-            textArrayIndex++;
-            if(textArrayIndex >= textArray.length) textArrayIndex = 0;
-            setTimeout(type, 500);
-        }
-    }
-
-    if(typedTextSpan) setTimeout(type, 2000);
 
     // 13. Copy Email
     const copyEmailBtn = document.querySelector('.copy-email-btn');
