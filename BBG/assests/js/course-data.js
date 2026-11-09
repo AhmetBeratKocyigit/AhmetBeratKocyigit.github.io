@@ -96,5 +96,17 @@ window.courseWeeks = [
                 file: 'assests/pages/Hafta6-Ozet.md'
             }
         ]
+    },
+    {
+        number: 7,
+        title: 'Algoritma ve Akış Şemaları',
+        description: 'Algoritmalar, Akış şemaları ve haftanın özeti.',
+        materials: [
+            {
+                title: 'Slayt 1 · Algoritma',
+                file: 'assests/pages/Hafta7-Algoritma.md'
+            },
+
+        ]
     }
 ];
